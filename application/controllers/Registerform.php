@@ -68,7 +68,12 @@ class  Registerform extends CI_Controller {
 	}
 		function edit($formulir_no){
 			$where = array('formulir_no' => $formulir_no);
-			$data['register_form'] = $this->registerform_model->edit_data($where,'data_barang')->result();
+			$data['register_form'] = $this->registerform_model->edit_data($where,'register_form')->result();
+			$this->load->view('template/header', $data);
+			$this->load->view('template/sidebar', $data);
+			$this->load->view('v_editregisterform');
+			$this->load->view('template/footer');
+
 
 		
 		
