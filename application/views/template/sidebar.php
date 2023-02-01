@@ -1,6 +1,7 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -125,6 +126,18 @@
           <a href="#" class="d-block">IT Admin Aura </a>
         </div>
       </div>
+
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
 
 
       <!-- Sidebar Menu -->
