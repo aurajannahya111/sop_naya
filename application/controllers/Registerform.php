@@ -66,14 +66,11 @@ class  Registerform extends CI_Controller {
 		$this->registerform_model->hapus_data($where,'register_form');
 		redirect('registerform');
 	}
-	function edit($formulir_no){
-		$data['title']= 'Edit Register FORM';
+	function edit(){
+		$formulir_no = $_GET'formulir_no']
+		echo $formulir_no;
 
-		$where = array('formulir_no' => $formulir_no);
-		$data['registerform'] = $this->registerform_model->edit_data($where,'register_form')->result();
-		$this->load->view('template/header', $data);
-		$this->load->view('template/sidebar', $data);
-		$this->load->view('v_editregisterform');
-		$this->load->view('template/footer');
+		
+		
 	}
 }
