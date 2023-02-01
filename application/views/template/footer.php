@@ -38,6 +38,8 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/template') ?>/dist/js/adminlte.min.js"></script>
 
+
+
 <!-- Page specific script -->
 <script>
   $(function () {

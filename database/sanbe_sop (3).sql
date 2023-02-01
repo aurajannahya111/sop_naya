@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2023 at 07:07 AM
+-- Generation Time: Feb 01, 2023 at 02:22 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -28,9 +28,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `login` (
-  `username` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `password` varchar(50) CHARACTER SET latin1 NOT NULL
+  `username` varchar(45) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(45) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`) VALUES
+('Sanbe_sop', '123'),
+('Sanbe_sop', '123');
 
 -- --------------------------------------------------------
 

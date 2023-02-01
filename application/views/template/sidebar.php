@@ -8,11 +8,8 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
+      </a>
+                  
       
         <div class="navbar-search-block">
           <form class="form-inline">
@@ -114,7 +111,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="<?= base_url('assets/template/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SOP</span>
+      <span class="brand-text font-weight-light">Aplikasi SOP</span>
     </a>
 
     <!-- Sidebar -->
@@ -163,6 +160,28 @@
                   <p>Update SOP</p>
                 </a>
               </li>
+
+
+
+              <li class="nav-header">Laporan</li>
+              <li class="nav-item">
+                <a href="<?= base_url('updatesop') ?>" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>Laporan</p>
+                </a>
+              </li>
+
+              </a>
+              <a class="nav-link" href="<?php echo base_url('index.php') ?>">
+              <i class="fa fa-mail-reply"></i>
+             <i style="font-size: 10px" class="fa">&#xf0e4;</i>Logout
+              </a>
+              
+
+              
+
+              
+  
 
           </li>
         </ul>
