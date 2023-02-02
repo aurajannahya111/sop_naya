@@ -10,7 +10,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       </a>
-                  
+                        
       
         <div class="navbar-search-block">
           <form class="form-inline">
@@ -29,7 +29,10 @@
         </div>
       </li>
 
+      
+
       <!-- Messages Dropdown Menu -->
+
       
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
@@ -83,7 +86,14 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Notifications Dropdown Menu -->
+      <!-- Logout -->
+
+             </a>
+              <a class="nav-link" href="<?php echo base_url('index.php') ?>">
+              <i class="fa fa-mail-reply"></i>
+              <button type="logout" class="btn-sm"><i class="fas fa-user"> Logout</i></button>
+              </a>
+              
     
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-header">15 Notifications</span>
@@ -101,7 +111,6 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-     
       </li>
     </ul>
   </nav>
@@ -183,17 +192,6 @@
                   <p>Laporan</p>
                 </a>
               </li>
-
-              </a>
-              <a class="nav-link" href="<?php echo base_url('index.php') ?>">
-              <i class="fa fa-mail-reply"></i>
-             <i style="font-size: 10px" class="fa">&#xf0e4;</i>Logout
-              </a>
-              
-
-              
-
-              
   
 
           </li>
@@ -211,12 +209,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"><?= $title ?></h1>
+            <h1 class="m-0 text-dark">
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><?= $title ?></li>
+              <li class="breadcrumb-item active">
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

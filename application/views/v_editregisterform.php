@@ -1,11 +1,11 @@
-<form action="<?= base_url('registeregisterformorm/ubah_aksi') ?>" method="POST">
+<form action="<?php echo site_url('registerform/ubah_aksi'); ?>"method="post">
 <div class="form-group">
     <label>Formulir No</label>
     <input type="text" name="formulir_no" class="form-control" readonly>
   </div>
 <div class="form-group">
     <label for="" >Company</label>
-    <select name="company" value="<?php $registerform->company ?>" class="form-control" required>
+    <select name="company" value="<?php echo $registerform->company ?>" class="form-control" required></input>
          <option value="SBF">--Pilih Company--</option>
          <option value="SBF">SBF</option>
          <option value="CPR">CPR</option>

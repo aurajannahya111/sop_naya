@@ -20,7 +20,7 @@
   <form method="post" action="<?php echo base_url("dashboard") ?>">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="<?= base_url('assets/template') ?>/index2.html" class="h1"><b>Login</b>SOP</a>
+      <a href="" class="h1"><b>Login</b>SOP</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -30,7 +30,7 @@
           <input type="username" class="form-control" placeholder="Username" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
@@ -59,11 +59,7 @@
         </div>
       </form>
 
-    
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
+
     </div>
     <!-- /.card-body -->
   </div>
