@@ -110,4 +110,6 @@ class  Registerform extends CI_Controller {
 		 $this->registerform_model->ubah_data($where, $data,'register_form');
 		 redirect('registerform');
 	 }
+
+	     
 }

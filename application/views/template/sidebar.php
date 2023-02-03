@@ -89,9 +89,10 @@
       <!-- Logout -->
 
              </a>
+             
               <a class="nav-link" href="<?php echo base_url('index.php') ?>">
               <i class="fa fa-mail-reply"></i>
-              <button type="logout" class="btn-sm"><i class="fas fa-user"> Logout</i></button>
+              <button type="logout" class="btn btn-secondary btn-sm"><i class="fas fa-users"> Logout</i></button>
               </a>
               
     
@@ -154,7 +155,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
          
         <li class="nav-item">
-                <a href="<?= base_url('dashboard') ?>" class="nav-link">
+                <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if($this->uri->segment(1) == 'dashboard') echo 'active' ?>">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>Dashboard</p>
                 </a>
@@ -162,14 +163,14 @@
               
               <li class="nav-header">Master</li>
               <li class="nav-item">
-                <a href="<?= base_url('registerform') ?>" class="nav-link">
+                <a href="<?= base_url('registerform') ?>" class="nav-link <?php if($this->uri->segment(1) == 'registerform') echo 'active' ?>">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Register FORM</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="<?= base_url('registersop') ?>" class="nav-link">
+                <a href="<?= base_url('registersop') ?>" class="nav-link <?php if($this->uri->segment(1) == 'registersop') echo 'active' ?>">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Register SOP</p>
                 </a>
@@ -177,7 +178,7 @@
 
               <li class="nav-header">Transaksi</li>
               <li class="nav-item">
-                <a href="<?= base_url('updatesop') ?>" class="nav-link">
+                <a href="<?= base_url('updatesop') ?>" class="nav-link <?php if($this->uri->segment(1) == 'updatesop') echo 'active' ?>">
                   <i class="nav-icon fas fa-database"></i>
                   <p>Update SOP</p>
                 </a>
@@ -187,7 +188,7 @@
 
               <li class="nav-header">Laporan</li>
               <li class="nav-item">
-                <a href="<?= base_url('updatesop') ?>" class="nav-link">
+                <a href="<?= base_url('laporan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'laporan') echo 'active' ?>">
                   <i class="nav-icon fas fa-book"></i>
                   <p>Laporan</p>
                 </a>
@@ -209,12 +210,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">
+            <h1 class="m-0 text-dark"><?= $title ?></li>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
+            <ol class="breadcrumb float-sm-right"> 
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">
+              <li class="breadcrumb-item active"> <?= $title ?></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

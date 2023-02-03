@@ -57,3 +57,5 @@ $route['login'] = 'dashboard';
 $route['hitlogin'] = 'login/dashboard';
 $route['hitlogout'] = 'dashboard/login';
 
+
+
