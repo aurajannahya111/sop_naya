@@ -92,7 +92,7 @@
              
               <a class="nav-link" href="<?php echo base_url('index.php') ?>">
               <i class="fa fa-mail-reply"></i>
-              <button type="logout" class="btn btn-secondary btn-sm"><i class="fas fa-users"> Logout</i></button>
+              <button type="logout" class="btn-sm"><i class="fas fa-users"> Logout</i></button>
               </a>
               
     
@@ -186,14 +186,6 @@
 
 
 
-              <li class="nav-header">Laporan</li>
-              <li class="nav-item">
-                <a href="<?= base_url('laporan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'laporan') echo 'active' ?>">
-                  <i class="nav-icon fas fa-book"></i>
-                  <p>Laporan</p>
-                </a>
-              </li>
-  
 
           </li>
         </ul>

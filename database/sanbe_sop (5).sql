@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 04:37 AM
+-- Generation Time: Feb 04, 2023 at 03:20 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -70,6 +70,18 @@ INSERT INTO `register_form` (`company`, `unit`, `status`, `departement`, `formul
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sop_detail`
+--
+
+CREATE TABLE `sop_detail` (
+  `sop_no` int(11) NOT NULL,
+  `form_no` int(11) NOT NULL,
+  `form_title` varchar(50) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sop_header`
 --
 
@@ -97,10 +109,28 @@ ALTER TABLE `register_form`
   ADD PRIMARY KEY (`formulir_no`);
 
 --
+-- Indexes for table `sop_detail`
+--
+ALTER TABLE `sop_detail`
+  ADD PRIMARY KEY (`sop_no`),
+  ADD KEY `form_no` (`form_no`),
+  ADD KEY `form_title` (`form_title`);
+
+--
 -- Indexes for table `sop_header`
 --
 ALTER TABLE `sop_header`
   ADD PRIMARY KEY (`unit`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `sop_detail`
+--
+ALTER TABLE `sop_detail`
+  ADD CONSTRAINT `sop_detail_ibfk_1` FOREIGN KEY (`form_no`) REFERENCES `register_form` (`formulir_no`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
