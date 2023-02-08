@@ -39,7 +39,6 @@
                     <td>
                     <a href="<?php echo site_url('registerform/edit/' . $rf->formulir_no,); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                     <a href="<?php echo base_url('registerform/hapus/'  .  $rf->formulir_no,); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')"><i class="fas fa-trash"></i></a>
-                   
                 </tr>
             </tbody>
          <?php  endforeach ?>
@@ -47,6 +46,4 @@
     </div>
 </div>
 
-
-
-<
+                    

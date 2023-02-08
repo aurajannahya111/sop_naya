@@ -73,7 +73,6 @@ class  Registerform extends CI_Controller {
 		$data['title']= 'Edit Register FORM';
 		$where = array('formulir_no' => $formulir_no);
 		$data['register_form'] = $this->registerform_model->edit_data($where,'register_form')->row();
-		
 
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -106,10 +105,13 @@ class  Registerform extends CI_Controller {
 			'eff_date' => $eff_date,
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
-		 );
+		);
+		
+		$where = array (
+			'formulir_no' => $formulir_no
+		);
 
-
-		 $this->registerform_model->ubah_data($where, $data,'register_form');
-		 redirect('registerform');
-	 }	     
+		$this->registerform_model->ubah_data($where, $data,'register_form');
+		redirect('registerform');
+	}
 }
