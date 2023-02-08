@@ -1,8 +1,8 @@
 <?php 
-class Registerform_model extends CI_Model{ 
+class Registersop_model extends CI_Model{ 
 	
 	function get_data(){
-		return $this->db->get('register_sop');
+		return $this->db->get('sop_header');
 	}
 	function input_data($data,$table)
 	{

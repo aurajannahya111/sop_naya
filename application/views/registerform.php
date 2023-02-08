@@ -1,7 +1,7 @@
               <div class="card">
               <div class="card-header">
                 <a href="<?= base_url('registerform/tambah')?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Data </a>
-                <a href="<?= base_url('registerform/excel')?>" class="btn btn-success btn-sm"><i class="fas fa-file-download"></i> Export Excel </a>
+   
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -39,6 +39,7 @@
                     <td>
                     <a href="<?php echo site_url('registerform/edit/' . $rf->formulir_no,); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                     <a href="<?php echo base_url('registerform/hapus/'  .  $rf->formulir_no,); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')"><i class="fas fa-trash"></i></a>
+                   
                 </tr>
             </tbody>
          <?php  endforeach ?>
@@ -48,5 +49,4 @@
 
 
 
-
-
+<

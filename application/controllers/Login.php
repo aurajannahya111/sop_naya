@@ -17,7 +17,7 @@ class Login extends CI_Controller {
 
 		//cek login, terdaftar atau tidak
 		if(isset($variable["login"])) {
-		    $email = $variable['username'];
+		    $username = $variable['username'];
 		    $password = $variable['password'];
 		    
 		    $limit = 1;
@@ -27,6 +27,8 @@ class Login extends CI_Controller {
 				$result = $this->db->get_where('login', array('username' => $username, 'password' => $password), $limit, $offset); 
 				if($this->db->affected_rows() > 0) {
 					$_SESSION['log'] = 'True';
+					//$this->session->set_userdata("userid") = $username;
+					 
 					header('location:dashboard');
 					return true;
 				} else {

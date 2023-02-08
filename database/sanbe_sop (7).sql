@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2023 at 03:20 AM
+-- Generation Time: Feb 08, 2023 at 01:34 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -64,8 +64,10 @@ CREATE TABLE `register_form` (
 --
 
 INSERT INTO `register_form` (`company`, `unit`, `status`, `departement`, `formulir_no`, `formulir_date`, `formulir_title`, `eff_date`, `exp_date`, `Remarks`) VALUES
+('SBF', 'U2', 'Active', 'wqe', 0, '2023-02-16', 'ddd', '2023-02-25', '2023-03-01', 'aer'),
 ('SBF', 'U3', 'Review', 'chepa', 1, '2023-01-31', 'menerima', '2023-02-01', '2023-02-09', 'ada'),
-('SBF', 'U2', 'Pending', 'Packing', 2, '2023-02-18', 'ya', '2023-02-25', '2023-03-08', 'yes');
+('SBF', 'U2', 'Pending', 'Packing', 2, '2023-02-18', 'ya', '2023-02-25', '2023-03-08', 'yes'),
+('CPR', 'U3', 'Review', 'ewr', 3, '2023-02-28', 'wq', '2023-02-16', '2023-02-24', 'wqe');
 
 -- --------------------------------------------------------
 
@@ -97,6 +99,14 @@ CREATE TABLE `sop_header` (
   `exp_date` date NOT NULL,
   `Remarks` varchar(50) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sop_header`
+--
+
+INSERT INTO `sop_header` (`company`, `unit`, `sop_no`, `status`, `departement`, `sop_date`, `sop_title`, `eff_date`, `exp_date`, `Remarks`) VALUES
+('CPR', 'U1', 1, 'aktif', 'chepa', '2023-02-02', 'aaaaaa', '2023-02-13', '2023-02-24', 'yyyy'),
+('SBF', 'U3', 2, 'Active', 'reg', '2023-02-17', 'dfg', '2023-02-16', '2023-02-17', 'fdg');
 
 --
 -- Indexes for dumped tables

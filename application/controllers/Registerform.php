@@ -54,6 +54,8 @@ class  Registerform extends CI_Controller {
 			'eff_date' => $eff_date,
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
+			//'created_by' => $_SESSION['userid'],
+			
 		
 		
 		);
@@ -67,29 +69,33 @@ class  Registerform extends CI_Controller {
 		redirect('registerform');
 	}
 	function edit($formulir_no){
+
+		$data['title']= 'Edit Register FORM';
 		$where = array('formulir_no' => $formulir_no);
-		$data['register_form'] = $this->registerform_model->edit_data($where,'register_form')->result();
+		$data['register_form'] = $this->registerform_model->edit_data($where,'register_form')->row();
 		
+
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('v_editregisterform');
 		$this->load->view('template/footer');	
 	}
 	function ubah_aksi(){
-		$var = $this->input->post();
-
-		$company = $var['company'];
-		$unit = $var['unit'];
-        $status = $var['status'];
-		$departement = $var['departement'];
-		$formulir_no = $var['formulir_no'];
-        $formulir_date = $var['formulir_date'];
-		$formulir_title = $var['formulir_title'];
-		$eff_date = $var['eff_date'];
-        $exp_date = $var['exp_date'];
-		$Remarks = $var['Remarks'];
+		
+        $variable = $this->input->post();
+		$company = $variable['company'];
+		$unit = $variable['unit'];
+        $status = $variable['status'];
+		$departement = $variable['departement'];
+		$formulir_no = $variable['formulir_no'];
+        $formulir_date = $variable['formulir_date'];
+		$formulir_title = $variable['formulir_title'];
+		$eff_date = $variable['eff_date'];
+        $exp_date = $variable['exp_date'];
+		$Remarks = $variable['Remarks'];
 		 
-		 $data = array(
+
+		$data = array(
 			'company' => $company,
 			'unit' => $unit,
 			'status' => $status,
@@ -100,16 +106,10 @@ class  Registerform extends CI_Controller {
 			'eff_date' => $eff_date,
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
-			 
 		 );
-		 
-		 $where = array (
-			 'formulir_no' => $formulir_no
-		 );
- 
+
+
 		 $this->registerform_model->ubah_data($where, $data,'register_form');
 		 redirect('registerform');
-	 }
-
-	     
+	 }	     
 }
