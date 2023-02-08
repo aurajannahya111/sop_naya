@@ -65,9 +65,76 @@
     <label>Remarks</label>
     <textarea name="Remarks" class="form-control" required></textarea>
   </div>
-  
+
 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
 </form>
 
+                            <hr/>
+                            <h5>Detail SOP</h5>
+                            
+                            <table id='list_barang' class="table">
+                              <tr>
+                                <td>Form_no</td>
+                                <td>Form Title</td>
+                              </tr>
+                            </table>
+                            
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                           Launch demo modal
+                           </button>         
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
+            
+                      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        ...
+        
+        <option selected>Pilih Detail</option>
+              <?php
+                  foreach($registerform as $rf) {
+                    echo "<option value='".$rf->formulir_no."'>".$rf->formulir_title."</option>";
+                }
+              ?>
+            </select>
 
- 
+        <table class='table'>
+              <thead>
+              <tr>
+                <td>Infomasi</td>
+                <td>Value</td>
+              </tr>
+              <tr>
+                <td>Formuli No</td>
+                <td><p id="formulir_no" name="formulir_no" placeholder="formulir no"><p></td>
+              </tr>
+              <tr>
+                <td>Formulir Title</td>
+                <td><p id="formulir_title" name="formulir_title" placeholder="formulir title"><p></td>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+
+            </table>
+            <input type="button" class="btn btn-primary" value="Tambah" onclick="clickMy()">
+          </div>
+
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

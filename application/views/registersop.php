@@ -39,8 +39,7 @@
                     <td>
                     <a href="<?php echo site_url('registersop/edit/' . $rs->sop_no,); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                     <a href="<?php echo base_url('registersop/hapus/'  .  $rs->sop_no,); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')"><i class="fas fa-trash"></i></a>
-                    <button class='btn btn-info btn-sm' type="button" onclick="showDetail('<?= $rs->sop_no ?>')">Info</button>
-             
+                  
                 </tr>
             </tbody>
          <?php  endforeach ?>
@@ -49,72 +48,23 @@
 </div>
 
              
-                    <div class="modal fade" id="detailModal">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                    <h4 class="modal-title">Detail SOP</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-              
-                    <!-- Modal body -->
-
-
-
-                    <th>Sop No</th>
-                    <th>Company</th>
-                    <th>Unit</th>
-                    <th>Departement</th>
-                    <th>Sop Date</th>
-                    <th>Sop Title</th>
-                    <th>Eff Date</th>
-                    <th>Exp Date</th>
-                    <th>Status</th>
-                    <th>Remarks</th>
-                    <th>Action</th>
-
-
-                    
-                    <div class="modal-body">
-                      <div>
-                        <h5>Transaksi</h5>
-                        <ul>
-                          <li>Formulir No: <span id='formulir_no'></span></li>
-                          <li>Company : <span id='suplier_nama'></span> dari Perusahaan : <span id='suplier_perusahaan'></span></li>
-                          <li>Unit : <span id='keterangan_trx'></li>
-                          <li>Departement : <span id='tanggal_trx'></li>
-                          <li>Formulir Date : <span id='tanggal_trx'></li>
-                          <li>Formulir Title : <span id='tanggal_trx'></li>
-                          <li>EFF Date : <span id='tanggal_trx'></li>
-                          <li>Exp Date : <span id='tanggal_trx'></li>
-                          <li>Status: <span id='tanggal_trx'></li>
-                          <li>Remarks: <span id='tanggal_trx'></li>
-                        </ul>
-                        <hr/>
-                        <h5>Detail SOP</h5>
-                        <table id='det_brg_trx' class='table'>
-                          <tr>
-                            <td>Sop No</td>
-                            <td>Form No</td>
-                            <td>Form Title</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-
-                    </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <?php  ?>
-                </footer>
-            </div>
-        </div>
-        <script>
-
-            function formSubmit(formulir_no) {
-                $('form#formdel_'+formulir_no).submit();
-            }
-            
-
-               
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
