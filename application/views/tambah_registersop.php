@@ -79,7 +79,7 @@
                               </tr>
                             </table>
                             
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
                            Launch demo modal
                            </button>         
                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
@@ -97,7 +97,7 @@
       
       <div class="modal-body">
         ...
-        
+
         <option selected>Pilih Detail</option>
               <?php
                   foreach($registerform as $rf) {
