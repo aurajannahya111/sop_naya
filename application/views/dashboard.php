@@ -67,10 +67,11 @@
           </div>
           <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
        
-        </div><!-- /.card-body -->
-       </div>
-            
+        </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+       
             

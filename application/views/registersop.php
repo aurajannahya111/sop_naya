@@ -1,7 +1,7 @@
 <div class="card">
               <div class="card-header">
                 <a href="<?= base_url('registersop/tambah')?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Data </a>
-                <a href="<?= base_url('registersop/excel')?>" class="btn btn-success btn-sm"><i class="fas fa-file-download"></i> Export Excel </a>
+                
               </div>
               <!-- /.card-header -->
               <div class="card-body">
