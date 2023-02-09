@@ -80,7 +80,7 @@
                             </table>
                             
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                           Launch demo modal
+                           Tambah Detail SOP
                            </button>         
                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
             
@@ -95,16 +95,16 @@
         </button>
       </div>
       
-      <div class="modal-body">
-        ...
-
-        <option selected>Pilih Detail</option>
-              <?php
-                  foreach($registerform as $rf) {
-                    echo "<option value='".$rf->formulir_no."'>".$rf->formulir_title."</option>";
+      <div class="modal-body"> 
+    <select name="company" class="form-control" required>
+         <option value="SBF">--Pilih details--</option> 
+         <?php
+                foreach ($registerform as $key => $v) {
+                    echo "<option value='".$v->id."'>".$v->nama."</option>";
                 }
               ?>
             </select>
+         
 
         <table class='table'>
               <thead>
@@ -123,17 +123,11 @@
               </thead>
               <tbody>
               </tbody>
-
-            </table>
+              </table>
             <input type="button" class="btn btn-primary" value="Tambah" onclick="clickMy()">
           </div>
-
-
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      
+     
       </div>
     </div>
   </div>

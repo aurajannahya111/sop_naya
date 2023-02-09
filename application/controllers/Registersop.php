@@ -61,5 +61,10 @@ class  Registersop extends CI_Controller {
 		$this->registersop_model->input_data($data,'sop_header');
 		redirect('registersop');
 	}
+	function hapus($sop_no){
+		$where = array('sop_no' => $sop_no);
+		$this->registersop_model->hapus_data($where,'sop_header');
+		redirect('registersop');
+	}
     
 }
