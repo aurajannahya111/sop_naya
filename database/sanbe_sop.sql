@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2023 at 10:09 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Feb 11, 2023 at 03:19 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,7 +66,9 @@ CREATE TABLE `register_form` (
 --
 
 INSERT INTO `register_form` (`company`, `unit`, `status`, `departement`, `formulir_no`, `formulir_date`, `formulir_title`, `eff_date`, `exp_date`, `Remarks`, `created_by`, `created_date`) VALUES
-('SBF', 'U1', 'Review', 'rpl', 0, '2023-02-18', 'yyyyyyyyyy', '2023-02-25', '2023-02-22', 'bujb', '', '2023-02-09 01:54:29');
+('SBF', 'U1', 'Review', 'rpl', 0, '2023-02-18', 'yyyyyyyyyy', '2023-02-25', '2023-02-22', 'bujb', '', '2023-02-09 01:54:29'),
+('CPR', 'U3', 'Active', '4444', 1, '2023-02-15', '4444', '2023-02-23', '2023-01-19', 'ON Going', '', '2023-02-11 05:58:19'),
+('CPR', 'U4', 'Obsolete', 'RPL', 88, '2023-02-22', 'Testing', '2023-02-22', '2023-02-21', 'RPL', '', '2023-02-11 08:22:11');
 
 -- --------------------------------------------------------
 
@@ -75,6 +77,19 @@ INSERT INTO `register_form` (`company`, `unit`, `status`, `departement`, `formul
 --
 
 CREATE TABLE `sop_detail` (
+  `sop_no` int(11) NOT NULL,
+  `form_no` int(11) NOT NULL,
+  `form_title` varchar(50) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sop_detail_keranjang`
+--
+
+CREATE TABLE `sop_detail_keranjang` (
+  `id` int(11) NOT NULL,
   `sop_no` int(11) NOT NULL,
   `form_no` int(11) NOT NULL,
   `form_title` varchar(50) CHARACTER SET latin1 NOT NULL
@@ -104,7 +119,7 @@ CREATE TABLE `sop_header` (
 --
 
 INSERT INTO `sop_header` (`company`, `unit`, `sop_no`, `status`, `departement`, `sop_date`, `sop_title`, `eff_date`, `exp_date`, `Remarks`) VALUES
-('SBF', 'U4', 0, 'Obsolete', 'k ', '2023-02-16', 'ivuj', '2023-02-22', '2023-02-28', 'cihn');
+('CPR', 'U2', 2, 'Obsolete', '123', '2023-02-28', '1123', '2023-02-23', '2023-03-01', '123123');
 
 --
 -- Indexes for dumped tables
@@ -125,10 +140,26 @@ ALTER TABLE `sop_detail`
   ADD KEY `form_title` (`form_title`);
 
 --
+-- Indexes for table `sop_detail_keranjang`
+--
+ALTER TABLE `sop_detail_keranjang`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sop_header`
 --
 ALTER TABLE `sop_header`
   ADD PRIMARY KEY (`sop_no`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `sop_detail_keranjang`
+--
+ALTER TABLE `sop_detail_keranjang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

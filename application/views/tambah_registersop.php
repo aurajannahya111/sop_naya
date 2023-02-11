@@ -62,8 +62,8 @@
 		</div>
 <hr>
 		<div class="form-group">
-			<label for="formno">FORM NO</label>
-			<select name="formno" id="formno" class="form-control" required>
+			<label for="formNo">FORM NO</label>
+			<select name="formNo" id="formNo" class="form-control" required>
 				<?php foreach($forms as $form): ?>   
 					<option value="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
 				<?php  endforeach ?>
@@ -103,7 +103,7 @@
 
 
 <!-- menyesuaikan yang di foto -->
-<form action="<?= base_url('registersop/tambah_aksi') ?>" method="POST">
+<!-- <form action="<?= base_url('registersop/tambah_aksi') ?>" method="POST"> -->
 <div class="row">
 	<div class="col-6">
 		<div class="form-group">
@@ -177,79 +177,109 @@
 	</div>
 </div>
 <hr>
-<div class="row">
-	<div class="col-6">
-		<div class="form-group">
-			<label for="formno">FORM NO</label>
-			<select name="formno" id="formno" class="form-control" required>
-				<?php foreach($forms as $form): ?>   
-					<option value="<?= $form->formulir_no ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
-				<?php  endforeach ?>
-			</select>
-		</div>
-	</div>
-	<div class="col-12 d-flex">
-		<div class="col-10">
-			<div class="form-group">
-				<label for="formtitle">FORM Title</label>
-				<input type="text" name="formtitle" id="formtitle" class="form-control" disabled>
+	<form  action="<?= base_url('registersop/addSopKeranjang') ?>" method="post">
+		<div class="row" id="formAddKeranjang">
+			<div class="col-6">
+				<div class="form-group">
+					<label for="formNo">FORM NO</label>
+					<select name="formNo" id="formNo" class="form-control" required>
+						<?php foreach($forms as $form): ?>   
+							<option value="<?= $form->formulir_no ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
+						<?php  endforeach ?>
+					</select>
+				</div>
+			</div>
+			<div class="col-12 d-flex">
+				<div class="col-10">
+					<div class="form-group">
+						<label for="formtitle">FORM Title</label>
+						<input type="text" name="formtitle" id="formtitle" class="form-control" disabled>
+					</div>
+				</div>
+				<div class="col-2 d-flex align-items-center">
+					<button type="button" class="btn btn-primary" onclick="meet();">
+						Add
+					</button>
+				</div>
+			</div>
+			<div class="col-12">
+				<table class="table table-hover border">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Form No</th>
+							<th>Form Title</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td scope="row">123123</td>
+							<td>123123123</td>
+							<td>12312312</td>
+						</tr>
+						<tr>
+							<td scope="row">123123213</td>
+							<td>123123123</td>
+							<td>1232131213</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
-		<div class="col-2 d-flex align-items-center">
-			<button type="button" class="btn btn-primary">
-				Add
-			</button>
-		</div>
-	</div>
-	<div class="col-12">
-		<table class="table table-hover border">
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>Form No</th>
-					<th>Form Title</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td scope="row">123123</td>
-					<td>123123123</td>
-					<td>12312312</td>
-				</tr>
-				<tr>
-					<td scope="row">123123213</td>
-					<td>123123123</td>
-					<td>1232131213</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
+	</form>
 
 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
 </form>
 
-<<<<<<< HEAD
+<a class="btn btn-app" onclick="testing()">Ajax</a>
+<p id="demo"></p>
+
 <script>
 	// BISA pake ajax untuk auto update form title, atau pake javascript Vanilla, atau pake jquery
-	const xhr = new XMLHttpRequest();
+	// const xhr = new XMLHttpRequest();
 
-	const selectFormNo = document.querySelector('#formno');
+	const selectFormNo = document.querySelector('#formNo');
 	
 	selectFormNo.addEventListener('change', () => {
 		let value = selectFormNo.value;
 		const option = selectFormNo.querySelector("[data-no='"+value+"']");
 		const text = (option.textContent).slice(4, (option.textContent).length);
-		console.log(text);
-
 		const title = document.querySelector('#formtitle');
 		title.value = text;
 	});
+	function submitForm() {
+		(document.querySelector('#formAddKeranjang')).parentNode.submit();
+	}
 
-	// $('#formno').on('change', () => {
+	// $('#formNo').on('change', () => {
 		
 	// });
+	function testing() {
+		var formNo = document.querySelector('#formNo').value;
+		var formtitle = document.querySelector('#formtitle').value;
+		var data = "formNo="+formNo+"&formtitle"+formtitle;
+
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("demo").innerHTML = this.responseText;
+			}
+			xhttp.open('GET',"http://localhost/SOP_SOP/registersop/addSopKeranjang?formno="+formNo+"&formtitle="+formtitle+"", true);
+			xhttp.send();
+		};
+	}
+
+	function meet() {
+		let form = document.createElement('form');
+		form.action = '/SOP_SOP/registersop/addSopKeranjang';
+		form.method = 'POST';
+
+		var html = '<input name="asass" value="barbarian">'
+		form.innerHTML = html;
+
+		document.body.appendChild(form);
+
+		form.submit();
+		window.top.location = 'http://localhost/SOP_SOP/registersop/addSopKeranjang?hari=senin';
+	}
 </script>
-=======
-                           
->>>>>>> a786d8951aa8c46a6ac34c9d215ac5ed343035fb
