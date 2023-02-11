@@ -229,6 +229,7 @@
 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
 </form>
 
+<<<<<<< HEAD
 <script>
 	// BISA pake ajax untuk auto update form title, atau pake javascript Vanilla, atau pake jquery
 	const xhr = new XMLHttpRequest();
@@ -249,3 +250,6 @@
 		
 	// });
 </script>
+=======
+                           
+>>>>>>> a786d8951aa8c46a6ac34c9d215ac5ed343035fb
