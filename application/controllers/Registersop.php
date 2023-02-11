@@ -7,6 +7,7 @@ class  Registersop extends CI_Controller {
     {
        parent::__construct();
        $this->load->model('registersop_model');
+       $this->load->model('registerform_model');
     }
 
 	public function index()
@@ -22,7 +23,8 @@ class  Registersop extends CI_Controller {
 	}
 	public function tambah()
     {
-        $data['title']= 'Tambah Register FORM';
+        $data['title']= 'Tambah Register SOP';
+		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
 
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
