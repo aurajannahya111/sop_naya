@@ -66,5 +66,60 @@ class  Registersop extends CI_Controller {
 		$this->registersop_model->hapus_data($where,'sop_header');
 		redirect('registersop');
 	}
+	public function tambahdetailsop() {
+
+		// query insert
+        // variabel form tambah detail
+		$variable = $this->input->post();
+
+		$sop_no = $variable["sop_no"];
+		$formulir_no = $variable["formulir_no"];
+		$formulir_title = $variable["formulir_title"];
+		
+		$data = array(
+			'sop_no' => $sop_no,
+			'formulir_no' => $formulir_no,
+			'formulir_title' => $formulir_title,
+		);
+
+		$this->registersop_model->input_data($data, 'registersop');
+		redirect('registersop');
+	}
+	public function tambahdatadetail() {
+
+		// query insert
+        // variabel form tambah detail
+		$variable = $this->input->post();
+		$id_masuk = $variable["id_masuk"];
+		$idbarang = $variable["idbarang"];
+		$nama_barang = $variable["nama_barang"];
+		$jumlah = $variable["jumlah"];
+		$harga= $variable["harga"];
+		$tanggal = $variable["tanggal"];
+		
+		$data = array(
+			'id_masuk' => $id_masuk,
+			'idbarang' => $idbarang,
+			'nama_barang' => $nama_barang,
+			'jumlah' => $jumlah,
+			'harga' => $harga,
+			'tanggal' => $tanggal,
+		);
+
+		$status = $this->m_masuk->input_data($data, 'masuk');
+		
+		if($status) {
+			/**
+			 * todo add, conditional if success insert
+			 */
+			header('location:masuk_edit');
+		} else {
+			/**
+			 * todo add, conditional if failed
+			 */
+		}
+	}
+	
+	
     
 }

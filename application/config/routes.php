@@ -58,4 +58,14 @@ $route['hitlogin'] = 'login/dashboard';
 $route['hitlogout'] = 'dashboard/login';
 
 
+/**
+ * transaksi barang keluar
+ */
+$route['keluar/hittambah'] = 'registersop/doadd';
+$route['keluar/(:any)/edit'] = 'registersop/goedit/$1';
+$route['keluar/(:any)/hitedit'] = 'registersop/doedit/$1';
+$route['keluar/(:any)/hitremove'] = 'registersop/doremove/$1';
+
+
+
 
