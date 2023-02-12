@@ -25,14 +25,18 @@ class  Registersop extends CI_Controller {
 	public function tambah()
     {
 		// Kosongkan Keranjang
-		$this->m_registersop_keranjang->bersihkan('sop_detail_keranjang');
+		if (isset($_GET['bersih'])) {			
+			$this->m_registersop_keranjang->bersihkan('sop_detail_keranjang');
+			redirect('registersop/tambah');
+		}
         $data['title']= 'Tambah Register SOP';
 		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
+		$data['keranjangs'] = $this->m_registersop_keranjang->get_data()->result();
 
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('tambah_registersop');
-		$this->load->view('template/footer');	
+		$this->load->view('template/footer');
     }
     function tambah_aksi(){
         $var = $this->input->post();
@@ -59,8 +63,6 @@ class  Registersop extends CI_Controller {
 			'eff_date' => $eff_date,
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
-		
-		
 		);
 
 		$this->registersop_model->input_data($data,'sop_header');
@@ -96,7 +98,12 @@ class  Registersop extends CI_Controller {
 	public function addSopKeranjang()
 	{
 		$form = $this->input->get();
-		echo $form['hari'];
-		return;
+
+		$data = array(
+			'form_no' => $form['no'],
+			'form_title' => $form['title']
+		);
+		$this->m_registersop_keranjang->input_data($data, 'sop_detail_keranjang');
+		return redirect('registersop/tambah');
 	}
 }
