@@ -17,4 +17,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/template') ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/template') ?>/dist/css/adminlte.min.css">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 </head>

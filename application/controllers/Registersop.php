@@ -8,6 +8,7 @@ class  Registersop extends CI_Controller {
        parent::__construct();
        $this->load->model('registersop_model');
        $this->load->model('registerform_model');
+       $this->load->model('m_registersop_keranjang');
     }
 
 	public function index()
@@ -23,17 +24,23 @@ class  Registersop extends CI_Controller {
 	}
 	public function tambah()
     {
+		// Kosongkan Keranjang
+		if (isset($_GET['bersih'])) {			
+			$this->m_registersop_keranjang->bersihkan('sop_detail_keranjang');
+			redirect('registersop/tambah');
+		}
         $data['title']= 'Tambah Register SOP';
 		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
+		$data['keranjangs'] = $this->m_registersop_keranjang->get_data()->result();
 
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('tambah_registersop');
-		$this->load->view('template/footer');	
+		$this->load->view('template/footer');
     }
     function tambah_aksi(){
-        $var = $this->input->post(); 
-        
+        $var = $this->input->post();
+
 		$company = $var['company'];
 		$unit = $var['unit'];
         $status = $var['status'];
@@ -56,18 +63,18 @@ class  Registersop extends CI_Controller {
 			'eff_date' => $eff_date,
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
-		
-		
 		);
 
 		$this->registersop_model->input_data($data,'sop_header');
 		redirect('registersop');
 	}
+
 	function hapus($sop_no){
 		$where = array('sop_no' => $sop_no);
 		$this->registersop_model->hapus_data($where,'sop_header');
 		redirect('registersop');
 	}
+
 	public function tambahdetailsop() {
 
 		// query insert
@@ -87,41 +94,16 @@ class  Registersop extends CI_Controller {
 		$this->registersop_model->input_data($data, 'registersop');
 		redirect('registersop');
 	}
-	public function tambahdatadetail() {
 
-		// query insert
-        // variabel form tambah detail
-		$variable = $this->input->post();
-		$id_masuk = $variable["id_masuk"];
-		$idbarang = $variable["idbarang"];
-		$nama_barang = $variable["nama_barang"];
-		$jumlah = $variable["jumlah"];
-		$harga= $variable["harga"];
-		$tanggal = $variable["tanggal"];
-		
+	public function addSopKeranjang()
+	{
+		$form = $this->input->get();
+
 		$data = array(
-			'id_masuk' => $id_masuk,
-			'idbarang' => $idbarang,
-			'nama_barang' => $nama_barang,
-			'jumlah' => $jumlah,
-			'harga' => $harga,
-			'tanggal' => $tanggal,
+			'form_no' => $form['no'],
+			'form_title' => $form['title']
 		);
-
-		$status = $this->m_masuk->input_data($data, 'masuk');
-		
-		if($status) {
-			/**
-			 * todo add, conditional if success insert
-			 */
-			header('location:masuk_edit');
-		} else {
-			/**
-			 * todo add, conditional if failed
-			 */
-		}
+		$this->m_registersop_keranjang->input_data($data, 'sop_detail_keranjang');
+		return redirect('registersop/tambah');
 	}
-	
-	
-    
 }
