@@ -86,14 +86,6 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Logout -->
-
-             </a>
-             
-              <a class="nav-link" href="<?php echo base_url('index.php') ?>">
-              <i class="fa fa-mail-reply"></i>
-              <button type="logout" class="btn-sm"><i class="fas fa-users"> Logout</i></button>
-              </a>
               
     
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -183,7 +175,12 @@
                   <p>Update SOP</p>
                 </a>
               </li>
-
+              <!-- Logout -->
+              </a>
+             <a class="nav-link" href="<?php echo base_url('index.php') ?>">
+             <i class="fa fa-mail-reply"></i>
+             <button type="logout" class="btn btn-info btn-sm"><i class="fas fa-users"> Logout</i></button>
+             </a>
 
 
 
