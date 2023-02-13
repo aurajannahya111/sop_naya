@@ -198,7 +198,9 @@
 					</div>
 				</div>
 				<div class="col-2 d-flex align-items-center">
-					<button id="buttonKeranjang" class="btn btn-primary">Add</button>
+					<button id="buttonKeranjang" class="btn btn-primary">
+						Add
+					</button>
 					<a href="<?= site_url('registersop/addSopKeranjang?no=77129&title=title baru aja') ?>" class="btn btn-primary">keranjang</a>
 				</div>
 			</div>
