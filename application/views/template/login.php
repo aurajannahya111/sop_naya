@@ -15,7 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/template') ?>/dist/css/adminlte.min.css">
 </head>
-<section class="vh-80" style="background-image: url('../../../assets/template/dist/img/photo1.png')">
+<section class="vh-80" style="background-image: url('../photo4.jpg')">
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
@@ -23,6 +23,7 @@
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="" class="h1"><b>Login</b>SOP</a>
+       <link href="<?php echo base_url("assets/css/adminlte.css")?>" rel="stylesheet" />
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>

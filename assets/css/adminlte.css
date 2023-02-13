@@ -34973,7 +34973,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 .register-page {
   -ms-flex-align: center;
   align-items: center;
-  background-color: #585d62;
+  background-image: url("../../assets/img/photo1.png");;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
