@@ -179,7 +179,7 @@
               </a>
              <a class="nav-link" href="<?php echo base_url('index.php') ?>">
              <i class="fa fa-mail-reply"></i>
-             <button type="logout" class="btn btn-info btn-sm"><i class="fas fa-users"> Logout</i></button>
+             <button type="logout" class="btn btn-default btn-sm"><i class="fas fa-users"> Logout</i></button>
              </a>
 
 
