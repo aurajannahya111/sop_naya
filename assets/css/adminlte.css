@@ -4820,7 +4820,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #f5f5f5;
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -34973,7 +34973,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 .register-page {
   -ms-flex-align: center;
   align-items: center;
-  background-image: url("../../assets/img/background1.jpg");
+  background-image: url("../../assets/img/obat4.png");
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
