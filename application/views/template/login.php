@@ -15,7 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/template') ?>/dist/css/adminlte.min.css">
 </head>
-<section class="vh-80" style="background-image: url('../../../assets/img/background1.jpg')">
+<section class="vh-80" style="background-image: url('../../../assets/img/obat1.png')">
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
