@@ -29,7 +29,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -39,9 +38,10 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+              <h2> <?= $treform->TotalRegisterform ?> </h2>
+              
 
-                <p>New Orders</p>
+                <p>Total Register Form</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>

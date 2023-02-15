@@ -12,7 +12,7 @@ class ApiRegistersop extends CI_Controller {
 
 	public function getdetail($formulir_title)
 	{
-		$result = $this->mregistersop_model->ambil_data_detail($formulir_title)->result(); 
+		$result = $this->registersop_model->ambil_data_detail($formulir_title)->result(); 
 		echo json_encode($result);
 	}
 
