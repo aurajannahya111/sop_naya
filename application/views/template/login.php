@@ -26,7 +26,7 @@
        <link href="<?php echo base_url("assets/css/adminlte.css")?>" rel="stylesheet" />
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Start the Aplication</p>
 
       <form action="<?= base_url('assets/template') ?>/index3.html" method="post">
         <div class="input-group mb-3">
