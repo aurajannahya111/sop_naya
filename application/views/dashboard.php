@@ -38,8 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-              <h2> <?= $treform->TotalRegisterform ?> </h2>
-              
+              <h2><?php echo $treform->TotalRegisterform ?></h2>        
 
                 <p>Total Register Form</p>
               </div>
@@ -55,9 +54,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+               <h2><?php echo $tresop->TotalRegistersop ?></h2> 
 
-                <p>User Registrations</p>
+                <p>Total Register SOP</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -88,7 +87,8 @@
     </div>
             <!-- /.card -->
   </section>
-  
+
+
 
 
 
