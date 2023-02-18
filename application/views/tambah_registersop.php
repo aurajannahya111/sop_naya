@@ -255,9 +255,11 @@
 		const title = document.querySelector('#formtitle');
 		title.value = text;
 	});
+
 	$(document).ready(function() {
 		$(document).on('click', '#buttonKeranjang', function(e) {
-			$('#form-keranjang').submit();
+			window.location = 'addSopkeranjang?no=9912&title=ini bukan title';
+			// $('#form-keranjang').submit();
 		});
 		$(document).on('submit', '#form-keranjang', function(e) {
 			$.ajax({
