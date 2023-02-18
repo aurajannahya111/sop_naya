@@ -18,7 +18,6 @@ class  Registerform extends CI_Controller {
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('registerform', $data);
 		$this->load->view('template/footer');
-
 	}
     public function tambah()
     {
