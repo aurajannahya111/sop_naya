@@ -1,7 +1,7 @@
 <form action="<?= base_url('registerform/ubah_aksi') ?>" method="POST">
 <div class="form-group">
     <label>Formulir No</label>
-    <input type="text" name="formulir_no" class="form-control" readonly>
+    <input type="text" name="formulir_no" value="<?php echo $register_form->formulir_no ?>" class="form-control" readonly>
   </div>
 <div class="form-group">
     <label for="" >Company</label>

@@ -7,7 +7,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>By Aura &copy; 2023 <a>Aplikasi SOP</a>.</strong> Sanbe Farma.
   </footer>
 
   <!-- Control Sidebar -->
@@ -39,24 +39,7 @@
 <script src="<?= base_url('assets/template') ?>/dist/js/adminlte.min.js"></script>
 
 
-<!-- Page specific script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["excel", "pdf", "print",]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
+
 </body>
 </html>
 

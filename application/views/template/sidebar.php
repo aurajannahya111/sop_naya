@@ -3,7 +3,7 @@
 
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -86,14 +86,6 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Logout -->
-
-             </a>
-             
-              <a class="nav-link" href="<?php echo base_url('index.php') ?>">
-              <i class="fa fa-mail-reply"></i>
-              <button type="logout" class="btn-sm"><i class="fas fa-users"> Logout</i></button>
-              </a>
               
     
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -121,8 +113,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="<?= base_url('assets/template/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Aplikasi SOP</span>
+      <img src="<?= base_url('assets/template/') ?>dist/img/BE.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-" style="opacity: .8">
+      <span class="brand-text font-weight-light">APLIKASI SOP</span>
     </a>
 
     <!-- Sidebar -->
@@ -130,10 +122,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= base_url('assets/template/') ?>dist/img/admin2.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= base_url('assets/template/') ?>dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">IT Admin Aura </a>
+          <a href="" class="d-block">IT Admin</a>
         </div>
       </div>
 
@@ -183,7 +175,12 @@
                   <p>Update SOP</p>
                 </a>
               </li>
-
+              <!-- Logout -->
+              </a>
+             <a class="nav-link" href="<?php echo base_url('index.php') ?>">
+             <i class="fa fa-mail-reply"></i>
+             <button type="logout" class="btn btn-default btn-sm"><i class="fas fa-users"> Logout</i></button>
+             </a>
 
 
 

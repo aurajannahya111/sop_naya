@@ -29,7 +29,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -39,12 +38,12 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+              <h2><?php echo $treform->TotalRegisterform ?></h2>        
 
-                <p>New Orders</p>
+                <p>Total Register Form</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-ios-book"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -55,12 +54,12 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+               <h2><?php echo $tresop->TotalRegistersop ?></h2> 
 
-                <p>User Registrations</p>
+                <p>Total Register SOP</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-document-text"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -72,10 +71,10 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+                <p>Total</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="ion ion-upload"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -88,5 +87,12 @@
     </div>
             <!-- /.card -->
   </section>
+
+
+
+
+
+
+  
        
             
