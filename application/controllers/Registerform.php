@@ -55,9 +55,6 @@ class  Registerform extends CI_Controller {
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
 			//'created_by' => $_SESSION['userid'],
-			
-		
-		
 		);
 
 		$this->registerform_model->input_data($data,'register_form');

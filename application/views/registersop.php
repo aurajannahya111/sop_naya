@@ -22,11 +22,11 @@
                     <th>Status</th>
                     <th>Remarks</th>
                     <th>Action</th>
-                  </tr>
+                  </tr>                  
                 </thead>
                 <?php
-                foreach($registersop as $rs): ?>    
-                  <tbody>
+                foreach($registersop as $rs): ?>
+                <tbody>
                   <tr class="text-center">
                     <td><?= $rs->sop_no ?></td>
                     <td><?= $rs->company ?></td>

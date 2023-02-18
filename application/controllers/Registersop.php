@@ -9,6 +9,7 @@ class  Registersop extends CI_Controller {
        $this->load->model('registersop_model');
        $this->load->model('registerform_model');
        $this->load->model('m_registersop_keranjang');
+       $this->load->model('m_registersop_detail');
     }
 
 	public function index()
@@ -66,6 +67,18 @@ class  Registersop extends CI_Controller {
 		);
 
 		$this->registersop_model->input_data($data,'sop_header');
+
+		$detail = $this->m_registersop_keranjang->get_data()->result();
+		$detailSopNo = $this->m_registersop_keranjang->get_nosop()->result();
+		$no_sop = $detailSopNo[0]->sop_no;
+		foreach ($detail as $value) {
+			$detailData = array(
+				'sop_no' => $no_sop,
+				'form_no' => $value->form_no,
+				'form_title' => $value->form_title,
+			);
+			$this->m_registersop_detail->input_data($detailData, 'sop_detail');
+		}
 		redirect('registersop');
 	}
 
@@ -104,6 +117,14 @@ class  Registersop extends CI_Controller {
 			'form_title' => $form['title']
 		);
 		$this->m_registersop_keranjang->input_data($data, 'sop_detail_keranjang');
+		return redirect('registersop/tambah');
+	}
+
+	public function deleteKeranjang($id)
+	{
+		$where = array('id' => $id);
+		$this->m_registersop_keranjang->hapus_data($where,'sop_detail_keranjang');
+
 		return redirect('registersop/tambah');
 	}
 }
