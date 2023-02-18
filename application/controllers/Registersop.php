@@ -1,8 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class  Registersop extends CI_Controller {
+// require 'vendor/autoload.php';
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+class  Registersop extends CI_Controller {
     public function __construct()
     {
        parent::__construct();
@@ -21,7 +25,6 @@ class  Registersop extends CI_Controller {
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('registersop', $data);
 		$this->load->view('template/footer');
-
 	}
 	public function tambah()
     {
@@ -126,5 +129,88 @@ class  Registersop extends CI_Controller {
 		$this->m_registersop_keranjang->hapus_data($where,'sop_detail_keranjang');
 
 		return redirect('registersop/tambah');
+	}
+
+	public function excel()
+	{
+		$data = $this->m_registersop_keranjang->get_data()->result();
+		
+		$spreadsheet = new Spreadsheet();
+
+        // Set document properties
+        $spreadsheet->getProperties()
+            ->setCreator('Mister Kodet')
+            ->setLastModifiedBy('Mister Kodet')
+            ->setTitle("judul excel")
+            ->setSubject("subjek excel")
+            ->setDescription("descripsi excel")
+            ->setKeywords('office 2007 openxml php')
+            ->setCategory('Excel');
+
+
+        $rowNumber = 2;
+		foreach ($data as $value) {
+			if ($rowNumber == 2) {
+                $isiB = 'Nama';
+                $isiC = 'Alamat';
+                $isiD = 'No. Telepon';
+                $isiE = 'Email';
+                $isiF = 'Tanggal Gabung';
+            } else {               
+                $isiB = $data->nama;
+                $isiC = $data->nama;
+                $isiD = $data->nama;
+                $isiE = $data->nama;
+                $isiF = $data->nama;
+
+				echo $data->nama;
+				return;
+
+				// Add some data
+				$spreadsheet->setActiveSheetIndex(0)
+					->setCellValue('B'.$rowNumber, $isiB)
+					->setCellValue('C'.$rowNumber, $isiC)
+					->setCellValue('D'.$rowNumber, $isiD)
+					->setCellValue('E'.$rowNumber, $isiE)
+					->setCellValue('F'.$rowNumber, $isiF);
+		
+				$rowNumber += 1;
+            }
+		}
+        for ($i=0; $i < $data ; $i++) {            
+        }
+        // Rename worksheet
+        $spreadsheet->getActiveSheet()->setTitle('Laporan Kodet');
+
+        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $spreadsheet->setActiveSheetIndex(0);
+
+        // Redirect output to a client’s web browser (Xlsx)
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="laporan-data-pelanggan.xlsx"');
+        header('Cache-Control: max-age=0');
+        // If you're serving to IE 9, then the following may be needed
+        header('Cache-Control: max-age=1');
+
+        // If you're serving to IE over SSL, then the following may be needed
+        header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+        header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+        header('Pragma: public'); // HTTP/1.0
+
+        $writer = new xlsx($spreadsheet);
+        $writer->save('php://output');
+        exit;
+	}
+
+	public function show($no_sop)
+	{
+		$data['title']= 'SOP Detail';
+		$data['details'] = $this->registersop_model->show($no_sop)->result();
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('registersop_detail');
+		$this->load->view('template/footer');
 	}
 }
