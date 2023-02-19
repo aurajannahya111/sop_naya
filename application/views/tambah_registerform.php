@@ -68,6 +68,5 @@
 
 
 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
-<button type="reset" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Reset</button>
 </form>
 
