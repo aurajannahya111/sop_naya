@@ -12,10 +12,6 @@ class Registersop_model extends CI_Model{
 	    $this->db->where($where);
 		$this->db->delete($table);
 	}
-	function edit_data($where,$table){
-		return $this->db->get_where($table,$where);
-	}
-
 	public function show($where)
 	{
 		$query = $this->db->query("SELECT sh.*, rf.* FROM sop_header sh INNER JOIN sop_detail sd ON sh.sop_no = sd.sop_no INNER JOIN register_form rf ON sd.form_no = rf.formulir_no WHERE sh.sop_no = $where;");
@@ -27,4 +23,12 @@ class Registersop_model extends CI_Model{
 		$query = $this->db->query("SELECT sop_no FROM sop_header order by sop_no desc limit 1");		
 		return $query;
 	}
+	function edit_data($where,$table){
+		return $this->db->get_where($table,$where);
+	}
+	function ubah_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
+
 }

@@ -214,4 +214,51 @@ class  Registersop extends CI_Controller {
 		$this->load->view('registersop_detail');
 		$this->load->view('template/footer');
 	}
+	function edit($sop_no){
+
+		$data['title']= 'Edit Register SOP';
+		$where = array('sop_no' => $sop_no);
+		$data['sop_header'] = $this->registersop_model->edit_data($where,'sop_header')->row();
+
+        $this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('v_editregistersop');
+		$this->load->view('template/footer');	
+	}
+	function ubah_aksi(){
+		
+        $variable = $this->input->post();
+		$company = $variable['company'];
+		$unit = $variable['unit'];
+        $sop_no = $variable['sop_no'];
+		$status = $variable['status'];
+		$departement = $variable['departement'];
+        $sop_date = $variable['sop_date'];
+		$sop_title = $variable['sop_title'];
+		$eff_date = $variable['eff_date'];
+        $exp_date = $variable['exp_date'];
+		$Remarks = $variable['Remarks'];
+		 
+
+		$data = array(
+			'company' => $company,
+			'unit' => $unit,
+			'status' => $status,
+			'departement' => $departement,
+			'sop_no' => $sop_no,
+            'sop_date' => $sop_date,
+			'sop_title' => $sop_title,
+			'eff_date' => $eff_date,
+            'exp_date' => $exp_date,
+			'Remarks' => $Remarks,
+		);
+		
+		
+		$where = array (
+			'sop_no' => $sop_no
+		);
+
+		$this->registersop_model->ubah_data($where, $data,'sop_header');
+		redirect('registersop');
+	}
 }
