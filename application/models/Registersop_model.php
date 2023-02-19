@@ -24,7 +24,7 @@ class Registersop_model extends CI_Model{
 
 	public function getLastId()
 	{
-		$query = $this->db->query("SELECT sop_no FROM sop_header order by created_at desc limit 1");		
+		$query = $this->db->query("SELECT sop_no FROM sop_header order by sop_no desc limit 1");		
 		return $query;
 	}
 }

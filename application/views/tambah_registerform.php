@@ -49,7 +49,8 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Formulir No</label>
-                <input type="text" name="formulir_no" class="form-control" disabled value="<?= $formulir_no ?>">
+                <input type="text" name="example" class="form-control" disabled value="<?= $formulir_no ?>">
+                <input type="hidden" name="formulir_no" value="<?= $formulir_no ?>">
             </div>
         </div>
         <div class="col-6">

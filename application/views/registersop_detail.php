@@ -27,8 +27,8 @@
                 <tbody>
                     <tr class="text-center">
                         <td><?= $detail->sop_no ?></td>
-                        <td><?= $detail->form_no ?></td>
-                        <td><?= $detail->form_title ?></td>
+                        <td><?= $detail->formulir_no ?></td>
+                        <td><?= $detail->formulir_title ?></td>
                         <td></td>
                     </tr>
                 </tbody>

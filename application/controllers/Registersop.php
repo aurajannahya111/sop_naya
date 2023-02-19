@@ -36,11 +36,11 @@ class  Registersop extends CI_Controller {
         $data['title']= 'Tambah Register SOP';
 		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
 		$data['keranjangs'] = $this->m_registersop_keranjang->get_data()->result();
-		$result = $this->registerform_model->getLastId()->result();
+		$result = $this->registersop_model->getLastId()->result();
 		if (count($result) <= 0) {
 			$data['number_sop'] = 1;
 		} else {
-			$data['number_sop'] = $result[0]->formulir_no + 1;
+			$data['number_sop'] = $result[0]->sop_no + 1;
 		}
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -77,8 +77,7 @@ class  Registersop extends CI_Controller {
 		$this->registersop_model->input_data($data,'sop_header');
 
 		$detail = $this->m_registersop_keranjang->get_data()->result();
-		$detailSopNo = $this->m_registersop_keranjang->get_nosop()->result();
-		$no_sop = $detailSopNo[0]->sop_no;
+		$no_sop = $this->registersop_model->getLastId()->result()[0]->sop_no;
 		foreach ($detail as $value) {
 			$detailData = array(
 				'sop_no' => $no_sop,
@@ -210,7 +209,6 @@ class  Registersop extends CI_Controller {
 	{
 		$data['title']= 'SOP Detail';
 		$data['details'] = $this->registersop_model->show($no_sop)->result();
-
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('registersop_detail');
