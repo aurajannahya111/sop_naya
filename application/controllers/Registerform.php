@@ -22,7 +22,12 @@ class  Registerform extends CI_Controller {
     public function tambah()
     {
         $data['title']= 'Tambah Register FORM';
-
+		$result = $this->registerform_model->getLastId()->result();
+		if (count($result) <= 0) {
+			$data['formulir_no'] = 1;
+		} else {
+			$data['formulir_no'] = $result[0]->formulir_no + 1;
+		}
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('tambah_registerform');

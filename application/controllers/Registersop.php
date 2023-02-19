@@ -36,7 +36,12 @@ class  Registersop extends CI_Controller {
         $data['title']= 'Tambah Register SOP';
 		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
 		$data['keranjangs'] = $this->m_registersop_keranjang->get_data()->result();
-
+		$result = $this->registerform_model->getLastId()->result();
+		if (count($result) <= 0) {
+			$data['number_sop'] = 1;
+		} else {
+			$data['number_sop'] = $result[0]->formulir_no + 1;
+		}
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('tambah_registersop');

@@ -19,4 +19,10 @@ class Registerform_model extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+
+	public function getLastId()
+	{
+		$query = $this->db->query("SELECT formulir_no FROM register_form order by created_date desc limit 1");		
+		return $query;
+	}
 }

@@ -23,7 +23,7 @@
 			</div>
 			<div class="form-group">
 				<label>sop No</label>
-				<input type="number" name="sop_no" class="form-control">
+				<input type="number" name="sop_no" class="form-control" disabled value="<?= $number_sop ?>">
 			</div>
 		</div>
 		<div class="col-6">
