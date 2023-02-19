@@ -134,7 +134,7 @@ class  Registersop extends CI_Controller {
 	public function excel()
 	{
 		$data = $this->m_registersop_keranjang->get_data()->result();
-		
+		return var_dump($data);
 		$spreadsheet = new Spreadsheet();
 
         // Set document properties
@@ -147,9 +147,9 @@ class  Registersop extends CI_Controller {
             ->setKeywords('office 2007 openxml php')
             ->setCategory('Excel');
 
-
         $rowNumber = 2;
 		foreach ($data as $value) {
+			var_dump($value);
 			if ($rowNumber == 2) {
                 $isiB = 'Nama';
                 $isiC = 'Alamat';
@@ -177,8 +177,6 @@ class  Registersop extends CI_Controller {
 				$rowNumber += 1;
             }
 		}
-        for ($i=0; $i < $data ; $i++) {            
-        }
         // Rename worksheet
         $spreadsheet->getActiveSheet()->setTitle('Laporan Kodet');
 

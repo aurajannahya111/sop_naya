@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
-  <form method="post" action="<?php echo base_url("dashboard") ?>">
+  <form method="post" action="<?php echo base_url("login/login") ?>">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="" class="h1"><b>Login</b>SOP</a>
@@ -28,9 +28,9 @@
     <div class="card-body">
       <p class="login-box-msg">Start the Aplication</p>
 
-      <form action="<?= base_url('assets/template') ?>/index3.html" method="post">
+      <!-- <form action="<?= base_url('assets/template') ?>/index3.html" method="post"> -->
         <div class="input-group mb-3">
-          <input type="username" class="form-control" placeholder="Username" required>
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" required>
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

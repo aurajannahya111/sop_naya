@@ -6,33 +6,32 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('template/login');
-
 	}
 	public function Login()
 	{
-		session_start();
+		// session_start();
 
-		$variable = $this->input->post();		
+		$variable = $this->input->post();
 
 
 		//cek login, terdaftar atau tidak
-		if(isset($variable["login"])) {
+		if(isset($variable["username"])) {
 		    $username = $variable['username'];
 		    $password = $variable['password'];
 		    
 		    $limit = 1;
 		    $offset = 0;
-
 		    //cocokin dengan database, ada atau tidak datanya
-				$result = $this->db->get_where('login', array('username' => $username, 'password' => $password), $limit, $offset); 
+				$result = $this->db->get_where('login', array('username' => $username, 'password' => $password), $limit, $offset)->result(); 
 				if($this->db->affected_rows() > 0) {
 					$_SESSION['log'] = 'True';
 					//$this->session->set_userdata("userid") = $username;
 					 
-					header('location:dashboard');
+					redirect('/dashboard');
 					return true;
 				} else {
-					header('location:login');
+					// redirect('/login');
+					$this->index();
 					return true;
 				}
 				

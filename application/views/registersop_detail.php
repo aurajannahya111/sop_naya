@@ -7,13 +7,6 @@
     <title>Detail</title>
 </head>
 <body>
-    
-        <table>
-            
-        </table>
-    
-                   
-              
     <div class="card">
         <div class="card-header">
             <a href="<?= base_url('registersop/tambah?bersih=true')?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Data </a>                
