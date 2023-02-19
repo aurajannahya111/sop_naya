@@ -103,6 +103,7 @@ class  Registerform extends CI_Controller {
 			'Remarks' => $Remarks,
 		);
 		
+		
 		$where = array (
 			'formulir_no' => $formulir_no
 		);
@@ -116,6 +117,7 @@ class  Registerform extends CI_Controller {
 	$data['registerform'] = $this->registerform_model->get_data("register_form")->result();
 
 	$this->load->view('laporanreform_pdf', $data);
+
 
     $paper_size ='A4';
 	$orientation = 'landscape';

@@ -23,7 +23,7 @@ class M_registersop_keranjang extends CI_Model{
 
 	public function get_nosop()
 	{
-		$query = $this->db->query("SELECT sop_no FROM sop_header order by created_at desc limit 1");
+		$query = $this->db->query("SELECT sop_no,form_no,form_title FROM sop_detail order by form_title desc limit 1");
 		// $value = $query[0]->sop_no;
 		return $query;
 	}
