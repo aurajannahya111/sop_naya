@@ -1,4 +1,4 @@
-<form action="<?= base_url('registerform/ubah_aksi') ?>" method="POST">
+<form action="<?= base_url('registersop/ubah_aksi') ?>" method="POST">
 <div class="form-group">
     <label>Sop No</label>
     <input type="text" name="sop_no" value="<?php echo $sop_header->sop_no ?>" class="form-control" readonly>

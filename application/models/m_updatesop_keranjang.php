@@ -1,8 +1,8 @@
 <?php 
-class M_registersop_keranjang extends CI_Model{ 
+class M_updatesop_keranjang extends CI_Model{ 
 	
 	function get_data(){
-		return $this->db->get('sop_detail_keranjang');
+		return $this->db->get('trxsop_detail_keranjang');
 	}
 	function input_data($data,$table)
 	{
@@ -22,7 +22,7 @@ class M_registersop_keranjang extends CI_Model{
 	public function get_nosop()
 	{
 		$query = $this->db->query("SELECT sop_no,form_no,form_title FROM sop_detail order by form_title desc limit 1");
-		// $value = $query[0]->sop_no;
+		// $value = $query[0]->trx_no;
 		return $query;
 	}
 }
