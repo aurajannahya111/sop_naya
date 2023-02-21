@@ -117,9 +117,6 @@
 							<td><?= $keranjang->form_no ?></td>
 							<td><?= $keranjang->form_title ?></td>
 							<td style="max-width: 30px;">
-								<a href="<?= site_url('registersop/editkeranjang') ?>" class="btn btn-success">
-									<i class="fas fa-edit"></i>
-								</a>
 								<a href="<?= site_url('registersop/deleteKeranjang/' . $keranjang->id) ?>" class="btn btn-danger">
 									<i class="fa fa-trash" aria-hidden="true"></i>
 								</a>

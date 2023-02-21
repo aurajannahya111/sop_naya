@@ -1,13 +1,11 @@
               <div class="card">
               <div class="card-header">
                 <a href="<?= base_url('registerform/tambah')?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Data </a>
-                <a href="<?= base_url('registerform/pdf')?>" class="btn btn-warning btn-sm"><i class="fas fa-file"></i> Export pdf </a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                  
                   <tr class="text-center">
                     <th>Formulir No</th>
                     <th>Company</th>

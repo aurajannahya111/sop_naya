@@ -21,7 +21,7 @@ class M_updatesop_keranjang extends CI_Model{
     }
 	public function get_nosop()
 	{
-		$query = $this->db->query("SELECT sop_no,form_no,form_title FROM sop_detail order by form_title desc limit 1");
+		$query = $this->db->query("SELECT sop_no,trx_no,form_no,form_title FROM trxsop_detail order by form_title desc limit 1");
 		// $value = $query[0]->trx_no;
 		return $query;
 	}

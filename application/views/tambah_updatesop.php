@@ -107,9 +107,9 @@
 		<div class="col-6">
 			<div class="form-group">
 				<label for="formNo">FORM NO</label>
-				<select name="formNo" id="formNo" class="form-control" >
+				<select name="formNO" id="formNo" class="form-control" >
 					<?php foreach($forms as $form): ?>   
-						<option value="<?= $form->formulir_no ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
+						<option value="<?= $form->form ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
 					<?php  endforeach ?>
 				</select>
 			</div>
@@ -140,15 +140,12 @@
 				<tbody>
 					<?php 
 					$i = 1;
-					foreach($keranjangg as $keranjang): ?>   
+					foreach($keranjangs as $keranjang): ?>   
 						<tr>
 							<td scope="row"><?= $i++ ?></td>
-							<td><?= $keranjangg->form_no ?></td>
-							<td><?= $keranjangg->form_title ?></td>
+							<td><?= $keranjang->form_no ?></td>
+							<td><?= $keranjang->form_title ?></td>
 							<td style="max-width: 30px;">
-								<a href="<?= site_url('updatesop/editkeranjang') ?>" class="btn btn-success">
-									<i class="fas fa-edit"></i>
-								</a>
 								<a href="<?= site_url('updatesop/deleteKeranjang/' . $keranjang->id) ?>" class="btn btn-danger">
 									<i class="fa fa-trash" aria-hidden="true"></i>
 								</a>
@@ -163,3 +160,60 @@
 	<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>	
 </form>
 
+
+<template id="">
+
+</template>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script>
+	// BISA pake ajax untuk auto update form title, atau pake javascript Vanilla, atau pake jquery
+
+	const selectFormNo = document.querySelector('#formNo');
+	var value =(selectFormNo.querySelector("[data-no='"+selectFormNo.value+"']")).textContent;
+	console.log(value);
+	document.querySelector('#formtitle').value = value.slice(4, value.length);
+	selectFormNo.addEventListener('change', () => {
+		let value = selectFormNo.value;
+		const option = selectFormNo.querySelector("[data-no='"+value+"']");
+		const text = (option.textContent).slice(4, (option.textContent).length);
+		const title = document.querySelector('#formtitle');
+		title.value = text;
+	});
+
+	$(document).ready(function() {
+		$(document).on('click', '#buttonKeranjang', function(e) {
+			const no = selectFormNo.value;
+			console.log(no);
+			const title = document.querySelector('#formtitle');
+			console.log(title.value);
+			window.location = "addSopkeranjang?no="+no+"&title="+title.value;
+		});
+		// $(document).on('submit', '#form-keranjang', function(e) {
+		// 	$.ajax({
+		// 		url : 'addSopKeranjang?no=nomerberapa&title=titleapa',
+		// 		method: 'POST',
+		// 		data: $(this).serialize(),
+		// 		beforeSend: function () {
+		// 			//function here ...
+		// 			$('button').prop('disabled', true);
+		// 		},
+		// 		success: function(data) {
+		// 			$('button').prop('disabled', false);
+		// 			console.log(data);
+		// 			$('#title').val("");
+		// 			$('#message').val("");
+
+		// 			$('#response').text(data.message);
+		// 		},
+		// 		error: function (jqXHR, textStatus, errorThrown) {
+					
+		// 			$('button').prop('disabled', false);
+		// 			console.log('Message: ' + textStatus + ' , HTTP: ' + errorThrown );
+		// 		},
+		// 	})
+
+		// 	return false;
+		// });
+	});
+</script>
