@@ -214,4 +214,88 @@ class  Registersop extends CI_Controller {
 		$this->load->view('registersop_detail');
 		$this->load->view('template/footer');
 	}
+
+	public function edit($sop_no)
+	{
+		if (isset($_GET['n'])) {
+			$details = $this->registersop_model->getDetail($sop_no)->result();
+			foreach ($details as $key => $detail) {
+				$detail = array(
+					'sop_no' => $detail->sop_no,
+					'form_no' => $detail->form_no,
+					'form_title' => $detail->form_title
+				);
+				$this->m_registersop_keranjang->input_data($detail, 'sop_detail_keranjang');
+			}
+		} else {
+			$this->m_registersop_keranjang->bersihkan('sop_detail_keranjang');
+			redirect('registersop/edit/'.$sop_no);
+		}
+		$where = array('sop_no' => $sop_no);
+		$data['title']= 'Update SOP';
+        $data['sop']= $this->registersop_model->edit_data($where,'sop_header')->result();
+		// $data['keranjangs'] = $this->m_registersop_keranjang->get_data()->result();
+		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
+		$data['details'] = $this->m_registersop_keranjang->get_data()->result();
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('Updatesop', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function edit_addSopkeranjang()
+	{
+		$form = $this->input->get();
+		
+		$data = array(
+			'form_no' => $form['no'],
+			'form_title' => $form['title']
+		);
+		$this->m_registersop_keranjang->input_data($data, 'sop_detail_keranjang');
+		return redirect("registersop/edit/".$form['sop_no']."?n");
+	}
+
+	public function update()
+	{
+		$var = $this->input->post();
+
+		$company = $var['company'];
+		$unit = $var['unit'];
+        $status = $var['status'];
+		$departement = $var['departement'];
+		$sop_no = $var['sop_no'];
+        $sop_date = $var['sop_date'];
+		$sop_title = $var['sop_title'];
+		$eff_date = $var['eff_date'];
+        $exp_date = $var['exp_date'];
+		$Remarks = $var['Remarks'];
+		
+		$data = array(
+			'company' => $company,
+			'unit' => $unit,
+			'status' => $status,
+			'departement' => $departement,
+			'sop_no' => $sop_no,
+            'sop_date' => $sop_date,
+			'sop_title' => $sop_title,
+			'eff_date' => $eff_date,
+            'exp_date' => $exp_date,
+			'Remarks' => $Remarks,
+		);
+
+		$this->registersop_model->input_data($data,'sop_header');
+
+		$detail = $this->m_registersop_keranjang->get_data()->result();
+		$no_sop = $this->registersop_model->getLastId()->result()[0]->sop_no;
+		foreach ($detail as $value) {
+			$detailData = array(
+				'sop_no' => $no_sop,
+				'form_no' => $value->form_no,
+				'form_title' => $value->form_title,
+			);
+			$this->m_registersop_detail->input_data($detailData, 'sop_detail');
+		}
+		redirect('registersop');
+	}
 }

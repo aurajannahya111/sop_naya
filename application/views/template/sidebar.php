@@ -162,7 +162,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="<?= base_url('registersop') ?>" class="nav-link <?php if($this->uri->segment(1) == 'registersop') echo 'active' ?>">
+                <a href="<?= base_url('registersop') ?>" class="nav-link  <?= $this->uri->segment(1) == 'registersop' && $this->uri->segment(2) != 'edit' ? 'active' : '' ?>">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Register SOP</p>
                 </a>
@@ -170,9 +170,9 @@
 
               <li class="nav-header">Transaksi</li>
               <li class="nav-item">
-                <a href="<?= base_url('updatesop') ?>" class="nav-link <?php if($this->uri->segment(1) == 'updatesop') echo 'active' ?>">
+                <a href="<?= base_url('registersop/edit/1') ?>" class="nav-link <?= $this->uri->segment(1) =='registersop' && $this->uri->segment(2) == 'edit' ? 'active' : '' ?>">
                   <i class="nav-icon fas fa-database"></i>
-                  <p>Update SOP</p>
+                  <p>Update SOP.. </p>
                 </a>
               </li>
               <!-- Logout -->

@@ -12,6 +12,7 @@ class Registersop_model extends CI_Model{
 	    $this->db->where($where);
 		$this->db->delete($table);
 	}
+
 	function edit_data($where,$table){
 		return $this->db->get_where($table,$where);
 	}
@@ -25,6 +26,18 @@ class Registersop_model extends CI_Model{
 	public function getLastId()
 	{
 		$query = $this->db->query("SELECT sop_no FROM sop_header order by sop_no desc limit 1");		
+		return $query;
+	}
+
+	public function getDetail($sop_no)
+	{
+		$query = $this->db->query("SELECT d.* FROM sop_header h INNER JOIN sop_detail d ON d.sop_no = h.sop_no where h.sop_no = $sop_no");
+		return $query;
+	}
+
+	public function getFullData($where)
+	{
+		$query = $this->db->query("SELECT h.*, d.* FROM sop_header h INNER JOIN sop_detail d ON d.sop_no = h.sop_no where h.sop_no = $where");
 		return $query;
 	}
 }

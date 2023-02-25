@@ -18,7 +18,7 @@ class M_registersop_keranjang extends CI_Model{
 
     public function bersihkan($table)
     {
-        $this->db->query("DELETE FROM ".$table."");
+        $this->db->query("DELETE FROM $table");
     }
 
 	public function get_nosop()
