@@ -35,8 +35,8 @@
           <td style="left-width: 70px;"><?= $rs->status ?></td>
           <td style="left-width: 70px;"><?= $rs->Remarks ?></td>
           <td style="left-width: 70px;">
-            <a href="<?php echo site_url('registersop/edit/' . $rs->sop_no,); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-            <a href="<?php echo base_url('registersop/hapus/'  .  $rs->sop_no,); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')"><i class="fas fa-trash"></i></a>
+            <a href="<?= site_url('registersop/edit/' . $rs->sop_no . '?n',); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+            <a href="<?= base_url('registersop/hapus/'  .  $rs->sop_no,); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')"><i class="fas fa-trash"></i></a>
             <a href="<?= site_url('registersop/show/'. $rs->sop_no) ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a>
           </td>
         </tr>

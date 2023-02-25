@@ -10,12 +10,17 @@ class  Updatesop extends CI_Controller {
        $this->load->model('m_updatesop_keranjang');
    
 
+    //    $this->load->model('updatesop_model');
+       $this->load->model('m_registersop_detail');
+       $this->load->model('registersop_model');
     }
 
-	public function index()
+	public function index($sop_no)
 	{
+		$where = array('sop_no' => $sop_no);
 		$data['title']= 'Update SOP';
-        $data['updatesop']= $this->updatesop_model->get_data('trxsop_header')->result();
+        // $data['updatesop']= $this->updatesop_model->get_data('trxsop_header')->result();
+        $data['sop']= $this->registersop_model->edit_data($where,'sop_header')->result();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
