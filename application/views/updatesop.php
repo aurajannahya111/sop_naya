@@ -39,7 +39,7 @@
           <td style="left-width: 100px;"><?= $us->sop_title ?></td>
           <td style="left-width: 100px;"><?= $us->eff_date ?></td>
           <td style="left-width: 100px;"><?= $us->exp_date ?></td>
-          <td style="left-width: 100px;"><?= $us->Remarks ?></td>
+          <td style="left-width: 100px;"><?= $us->remarks ?></td>
           <td style="left-width: 100px;"><?= $us->review_date ?></td>
           <td style="left-width: 100px;">
             <a href="<?php echo site_url('updatesop/edit/' . $us->sop_no,); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
