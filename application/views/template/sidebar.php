@@ -124,7 +124,7 @@
           <img src="<?= base_url('assets/template/') ?>dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="" class="d-block">IT Admin</a>
+          <a href="" class="d-block">IT Admin Aura</a>
         </div>
       </div>
 
