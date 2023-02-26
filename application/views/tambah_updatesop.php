@@ -49,7 +49,7 @@
 			</div>
 		</div>
         <div class="col-6">
-        <div class="form-group">
+        	<div class="form-group">
 				<label for="" >Trx Type</label>
 				<select name="trx_type" class="form-control" >
 					<option value="">--Pilih type--</option>
@@ -59,45 +59,61 @@
 				</select>
 			</div>
         </div>
-		<div class="col-8">
-			<div class="form-group">
-				<label>Sop No</label>
-				<input type="text" name="sop_no" class="form-control" >
+		<div class="col-12 d-flex p-0">
+			<div class="col-6">
+				<!-- <div class="form-group">
+					<label>Sop No</label>
+					<input type="number" name="sop_no" id="number_sop" class="form-control" >
+				</div> -->
+				<div class="form-group">
+					<label>Sop No</label>
+					<select name="sop_no" id="number_sop" class="form-control">
+						<?php foreach($sops as $sop): ?>   
+							<option value="<?= $sop->sop_no ?>"><?= $sop->sop_no ?> - <?= $sop->sop_title ?></option>
+						<?php endforeach ?>
+					</select>
+				</div>
 			</div>
-		</div>
-		<div class="col-4">
-			<div class="form-group">
-				<label>Sop Date</label>
-				<input type="Date" name="sop_date" class="form-control" >
+			<div class="col-6">
+				<div class="form-group">
+					<label>Sop Date</label>
+					<input type="Date" name="sop_date" id="sop_date" class="form-control" >
+				</div>
 			</div>
 		</div>
 		<div class="col-12">
 			<div class="form-group">
 				<label>Sop Title</label>
-				<input type="title" name="sop_title" class="form-control" >
+				<input type="title" name="sop_title" id="sop_title" class="form-control" >
 			</div>
 		</div>
         <div class="col-6">
 			<div class="form-group">
 				<label>Eff Date</label>
-				<input type="Date" name="eff_date" class="form-control" >
+				<input type="Date" name="eff_date" id="sop_effdate" class="form-control" >
 			</div>
 		</div>
         <div class="col-6">
 			<div class="form-group">
 				<label>Exp Date</label>
-				<input type="Date" name="exp_date" class="form-control" >
+				<input type="Date" name="exp_date" id="sop_expdate" class="form-control" >
 			</div>
 		</div>
 		<div class="col-12">
 			<div class="form-group">
 				<label>Remarks</label>
-				<textarea name="Remarks" class="form-control" ></textarea>
+				<textarea name="Remarks" id="remarks" class="form-control" ></textarea>
 			</div>
 		</div>
         <div class="col-6">
 			<div class="form-group">
 				<label>Review Date</label>
+				<input type="Date" name="review_date" class="form-control" >
+			</div>
+		</div>
+        <div class="col-6">
+			<div class="form-group">
+				<label>Next Review Date</label>
 				<input type="Date" name="review_date" class="form-control" >
 			</div>
 		</div>
@@ -109,8 +125,8 @@
 				<label for="formNo">FORM NO</label>
 				<select name="formNO" id="formNo" class="form-control" >
 					<?php foreach($forms as $form): ?>   
-						<option value="<?= $form->form ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
-					<?php  endforeach ?>
+						<option value="<?= $form->formulir_no ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
+					<?php endforeach ?>
 				</select>
 			</div>
 		</div>
@@ -140,7 +156,7 @@
 				<tbody>
 					<?php 
 					$i = 1;
-					foreach($keranjangs as $keranjang): ?>   
+					foreach($keranjangs as $keranjang): ?>
 						<tr>
 							<td scope="row"><?= $i++ ?></td>
 							<td><?= $keranjang->form_no ?></td>
@@ -156,22 +172,15 @@
 			</table>
 		</div>
 	</div>
-
 	<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>	
 </form>
-
-
-<template id="">
-
-</template>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 <script>
 	// BISA pake ajax untuk auto update form title, atau pake javascript Vanilla, atau pake jquery
 
 	const selectFormNo = document.querySelector('#formNo');
-	var value =(selectFormNo.querySelector("[data-no='"+selectFormNo.value+"']")).textContent;
-	console.log(value);
+	var value = (selectFormNo.querySelector("[data-no='"+selectFormNo.value+"']")).textContent;
 	document.querySelector('#formtitle').value = value.slice(4, value.length);
 	selectFormNo.addEventListener('change', () => {
 		let value = selectFormNo.value;
@@ -180,40 +189,43 @@
 		const title = document.querySelector('#formtitle');
 		title.value = text;
 	});
-
+	
 	$(document).ready(function() {
+		let dataSopNo = [];
+		let dataSopTitle = [];
+		let dataSopDate = [];
+		let dataSopEffDate = [];
+		let dataSopExpDate = [];
+		let dataSopRemarks = [];
+		<?php foreach($sops as $sop): ?>
+			dataSopNo.push("<?= $sop->sop_no ?>");
+			dataSopTitle.push("<?= $sop->sop_title ?>");
+			dataSopDate.push("<?= $sop->sop_date ?>");
+			dataSopEffDate.push("<?= $sop->eff_date ?>");
+			dataSopExpDate.push("<?= $sop->exp_date ?>");
+			dataSopRemarks.push("<?= $sop->Remarks ?>");
+		<?php endforeach ?>
+
 		$(document).on('click', '#buttonKeranjang', function(e) {
 			const no = selectFormNo.value;
-			console.log(no);
 			const title = document.querySelector('#formtitle');
 			console.log(title.value);
 			window.location = "addSopkeranjang?no="+no+"&title="+title.value;
 		});
-		// $(document).on('submit', '#form-keranjang', function(e) {
-		// 	$.ajax({
-		// 		url : 'addSopKeranjang?no=nomerberapa&title=titleapa',
-		// 		method: 'POST',
-		// 		data: $(this).serialize(),
-		// 		beforeSend: function () {
-		// 			//function here ...
-		// 			$('button').prop('disabled', true);
-		// 		},
-		// 		success: function(data) {
-		// 			$('button').prop('disabled', false);
-		// 			console.log(data);
-		// 			$('#title').val("");
-		// 			$('#message').val("");
 
-		// 			$('#response').text(data.message);
-		// 		},
-		// 		error: function (jqXHR, textStatus, errorThrown) {
-					
-		// 			$('button').prop('disabled', false);
-		// 			console.log('Message: ' + textStatus + ' , HTTP: ' + errorThrown );
-		// 		},
-		// 	})
+		$('#number_sop').on('change', function (e) {
+			let arrayIndex = dataSopNo.indexOf($('#number_sop').val());
+			setInputSop(arrayIndex);
+		});
 
-		// 	return false;
-		// });
+		function setInputSop(index = 0) {
+			$('#sop_title').val(dataSopTitle[index]);
+			$('#sop_date').val(dataSopDate[index]);
+			$('#sop_effdate').val(dataSopEffDate[index]);
+			$('#sop_expdate').val(dataSopExpDate[index]);
+			$('#remarks').val(dataSopRemarks[index]);
+		}
+		setInputSop();
 	});
+
 </script>

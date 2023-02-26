@@ -85,8 +85,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
-      </li>
-              
+      </li>              
     
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-header">15 Notifications</span>
@@ -162,7 +161,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="<?= base_url('registersop') ?>" class="nav-link  <?= $this->uri->segment(1) == 'registersop' && $this->uri->segment(2) != 'edit' ? 'active' : '' ?>">
+                <a href="<?= base_url('registersop') ?>" class="nav-link  <?= $this->uri->segment(1) == 'registersop' ? 'active' : '' ?>">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Register SOP</p>
                 </a>
@@ -170,7 +169,7 @@
 
               <li class="nav-header">Transaksi</li>
               <li class="nav-item">
-                <a href="<?= base_url('registersop/edit/1') ?>" class="nav-link <?= $this->uri->segment(1) =='registersop' && $this->uri->segment(2) == 'edit' ? 'active' : '' ?>">
+                <a href="<?= base_url('updatesop') ?>" class="nav-link <?= $this->uri->segment(1) =='updatesop' ? 'active' : '' ?>">
                   <i class="nav-icon fas fa-database"></i>
                   <p>Update SOP</p>
                 </a>

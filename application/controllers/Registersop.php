@@ -267,7 +267,7 @@ class  Registersop extends CI_Controller {
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
-		$this->load->view('Updatesop', $data);
+		$this->load->view('edit_registersop', $data);
 		$this->load->view('template/footer');
 	}
 

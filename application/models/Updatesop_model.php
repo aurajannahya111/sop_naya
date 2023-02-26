@@ -19,7 +19,7 @@ class Updatesop_model extends CI_Model{
 	}
 	public function show($where)
 	{
-		$query = $this->db->query("SELECT sh.*, rf.* FROM sop_header sh INNER JOIN sop_detail sd ON sh.sop_no = sd.sop_no INNER JOIN register_form rf ON sd.form_no = rf.formulir_no WHERE sh.sop_no = $where;");
+		$query = $this->db->query("SELECT sh.*, rf.* FROM trxsop_header sh INNER JOIN sop_detail sd ON sh.sop_no = sd.sop_no INNER JOIN register_form rf ON sd.form_no = rf.formulir_no WHERE sh.sop_no = $where;");
 		return $query;
 	}
 	function edit_data($where,$table){

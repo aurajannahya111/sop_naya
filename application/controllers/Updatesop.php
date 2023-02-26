@@ -1,26 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class  Updatesop extends CI_Controller {
+class Updatesop extends CI_Controller {
 
     public function __construct()
     {
        parent::__construct();
        $this->load->model('updatesop_model');
        $this->load->model('m_updatesop_keranjang');
-   
 
     //    $this->load->model('updatesop_model');
        $this->load->model('m_registersop_detail');
        $this->load->model('registersop_model');
+       $this->load->model('registerform_model');
     }
 
-	public function index($sop_no)
+	public function index()
 	{
-		$where = array('sop_no' => $sop_no);
+		// $where = array('sop_no' => $sop_no);
 		$data['title']= 'Update SOP';
-        // $data['updatesop']= $this->updatesop_model->get_data('trxsop_header')->result();
-        $data['sop']= $this->registersop_model->edit_data($where,'sop_header')->result();
+        $data['updatesop']= $this->updatesop_model->get_data('trxsop_header')->result();
+        // $data['sop']= $this->registersop_model->edit_data($where,'sop_header')->result();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -30,8 +30,8 @@ class  Updatesop extends CI_Controller {
 	public function tambah()
     {
 		
-        $data['title']= 'Tambah Register SOP';
-		$data['forms'] = $this->updatesop_model->get_data('trxsop_header')->result();
+        $data['title']= 'Tambah Update SOP';
+		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
 		$data['keranjangs'] = $this->m_updatesop_keranjang->get_data()->result();
 		$result = $this->updatesop_model->getLastId()->result();
 		if (count($result) <= 0) {
@@ -39,6 +39,8 @@ class  Updatesop extends CI_Controller {
 		} else {
 			$data['number_trxno'] = $result[0]->trx_no + 1;
 		}
+		$data['sops'] = $this->registersop_model->get_data()->result();
+
         $this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('tambah_updatesop');
@@ -103,7 +105,6 @@ class  Updatesop extends CI_Controller {
 	public function addSopKeranjang()
 	{
 		$form = $this->input->get();
-
 		$data = array(
 			'form_no' => $form['no'],
 			'form_title' => $form['title']
