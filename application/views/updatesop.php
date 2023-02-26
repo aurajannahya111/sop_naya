@@ -55,7 +55,7 @@
 
 
 <!-- menyesuaikan yang di foto -->
-<form action="<?= base_url('registersop/tambah_aksi') ?>" method="POST">
+<form action="<?= base_url('registersop/update') ?>" method="POST">
 	<div class="row">
 		<div class="col-6">
 			<div class="form-group">
@@ -168,15 +168,16 @@
 					<?php 
 					$i = 1;
 					foreach($details as $detail): ?>
+					<?= $detail->id ?>
 						<tr>
 							<td scope="row"><?= $i++ ?></td>
 							<td><?= $detail->form_no ?></td>
 							<td><?= $detail->form_title ?></td>
 							<td style="max-width: 40px;">
-								<a href="<?= site_url('registersop/editkeranjang'. $detail->id) ?>" class="btn btn-success">
+								<!-- <a href="<?= site_url('registersop/editkeranjang'. $detail->id) ?>" class="btn btn-success">
 									<i class="fas fa-edit"></i>
-								</a>
-								<a href="<?= site_url('registersop/deleteKeranjang/'. $detail->id) ?>" class="btn btn-danger">
+								</a> -->
+								<a href="<?= site_url('registersop/delete_editKeranjang/'. $detail->id ."?sop=".$detail->sop_no) ?>" class="btn btn-danger">
 									<i class="fa fa-trash" aria-hidden="true"></i>
 								</a>
 							</td>

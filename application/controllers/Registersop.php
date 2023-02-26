@@ -243,7 +243,7 @@ class  Registersop extends CI_Controller {
 
 	public function edit($sop_no)
 	{
-		if (isset($_GET['n'])) {
+		if (isset($_GET['b'])) {
 			$details = $this->registersop_model->getDetail($sop_no)->result();
 			foreach ($details as $key => $detail) {
 				$detail = array(
@@ -253,14 +253,15 @@ class  Registersop extends CI_Controller {
 				);
 				$this->m_registersop_keranjang->input_data($detail, 'sop_detail_keranjang');
 			}
-		} else {
+			return redirect("registersop/edit/$sop_no");
+		} elseif (isset($_GET['bersih'])) {
 			$this->m_registersop_keranjang->bersihkan('sop_detail_keranjang');
-			redirect('registersop/edit/'.$sop_no);
+			redirect("registersop/edit/$sop_no?b");
 		}
 		$where = array('sop_no' => $sop_no);
 		$data['title']= 'Update SOP';
         $data['sop']= $this->registersop_model->edit_data($where,'sop_header')->result();
-		// $data['keranjangs'] = $this->m_registersop_keranjang->get_data()->result();
+		
 		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
 		$data['details'] = $this->m_registersop_keranjang->get_data()->result();
 
@@ -275,11 +276,12 @@ class  Registersop extends CI_Controller {
 		$form = $this->input->get();
 		
 		$data = array(
+			'sop_no' => $form['sop_no'],
 			'form_no' => $form['no'],
 			'form_title' => $form['title']
 		);
 		$this->m_registersop_keranjang->input_data($data, 'sop_detail_keranjang');
-		return redirect("registersop/edit/".$form['sop_no']."?n");
+		return redirect("registersop/edit/".$form['sop_no']."");
 	}
 
 	public function update()
@@ -296,7 +298,8 @@ class  Registersop extends CI_Controller {
 		$eff_date = $var['eff_date'];
         $exp_date = $var['exp_date'];
 		$Remarks = $var['Remarks'];
-		
+		var_dump($sop_no);
+		return;
 		$data = array(
 			'company' => $company,
 			'unit' => $unit,
@@ -308,8 +311,7 @@ class  Registersop extends CI_Controller {
 			'eff_date' => $eff_date,
             'exp_date' => $exp_date,
 			'Remarks' => $Remarks,
-		);
-		
+		);		
 		
 		$where = array (
 			'sop_no' => $sop_no
@@ -317,18 +319,26 @@ class  Registersop extends CI_Controller {
 
 		$this->registersop_model->ubah_data($where, $data,'sop_header');
 
-		// // $this->registersop_model->input_data($data,'sop_header');
+		$detail = $this->m_registersop_keranjang->get_data()->result();
+		$no_sop = $this->registersop_model->getLastId()->result()[0]->sop_no;
+		foreach ($detail as $value) {
+			$detailData = array(
+				'sop_no' => $no_sop,
+				'form_no' => $value->form_no,
+				'form_title' => $value->form_title,
+			);
+			$this->m_registersop_detail->input_data($detailData, 'sop_detail');
+		}
+		redirect('registersop');
+	}
 
-		// $detail = $this->m_registersop_keranjang->get_data()->result();
-		// $no_sop = $this->registersop_model->getLastId()->result()[0]->sop_no;
-		// foreach ($detail as $value) {
-		// 	$detailData = array(
-		// 		'sop_no' => $no_sop,
-		// 		'form_no' => $value->form_no,
-		// 		'form_title' => $value->form_title,
-		// 	);
-		// 	$this->m_registersop_detail->input_data($detailData, 'sop_detail');
-		// }
-		// redirect('registersop');
+	public function delete_editKeranjang($id)
+	{
+		$where = array('id' => $id);
+		$this->m_registersop_keranjang->hapus_data($where, 'sop_detail_keranjang');
+		if (isset($_GET['sop'])) {
+			$no_sop = $_GET['sop'];
+		}
+		return redirect("registersop/edit/$no_sop");
 	}
 }

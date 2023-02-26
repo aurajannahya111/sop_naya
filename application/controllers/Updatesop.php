@@ -112,4 +112,3 @@ class  Updatesop extends CI_Controller {
 		return redirect('updatesop/tambah');
 	}
 }
-
