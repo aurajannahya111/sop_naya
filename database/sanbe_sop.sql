@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 26, 2023 at 02:23 PM
+-- Generation Time: Feb 26, 2023 at 02:47 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -150,8 +150,8 @@ INSERT INTO `sop_header` (`company`, `unit`, `sop_no`, `status`, `departement`, 
 --
 
 CREATE TABLE `trxsop_detail` (
-  `trx_no` int NOT NULL,
   `sop_no` int NOT NULL,
+  `trx_no` int NOT NULL,
   `form_no` int NOT NULL,
   `form_title` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -185,30 +185,30 @@ INSERT INTO `trxsop_detail_keranjang` (`id`, `sop_no`, `trx_no`, `form_no`, `for
 --
 
 CREATE TABLE `trxsop_header` (
-  `id` int NOT NULL,
-  `company` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `unit` varchar(50) NOT NULL,
-  `departement` varchar(50) NOT NULL,
   `trx_no` int NOT NULL,
-  `trx_date` varchar(100) NOT NULL,
-  `trx_type` varchar(100) NOT NULL,
+  `trx_date` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `trx_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `sop_no` int NOT NULL,
-  `sop_date` varchar(50) NOT NULL,
-  `sop_title` varchar(50) NOT NULL,
+  `sop_title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `company` varchar(50) NOT NULL,
+  `unit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `departement` varchar(50) NOT NULL,
+  `sop_date` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `remarks` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `eff_date` varchar(50) NOT NULL,
   `exp_date` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `remarks` varchar(50) NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `review_date` varchar(50) NOT NULL,
-  `next_review_date` varchar(50) NOT NULL
+  `created_by` varchar(50) NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `trxsop_header`
 --
 
-INSERT INTO `trxsop_header` (`id`, `company`, `status`, `unit`, `departement`, `trx_no`, `trx_date`, `trx_type`, `sop_no`, `sop_date`, `sop_title`, `eff_date`, `exp_date`, `remarks`, `review_date`, `next_review_date`) VALUES
-(1, 'SBF', 'Review', 'U2', 'Update Sop', 1, '2023-02-23', 'Draft', 2, '2023-02-26', '2023-02-26', '2023-02-26', '2023-02-26', 'Draft Sop', 'Draft Sop', '');
+INSERT INTO `trxsop_header` (`trx_no`, `trx_date`, `trx_type`, `sop_no`, `sop_title`, `company`, `unit`, `departement`, `sop_date`, `remarks`, `eff_date`, `exp_date`, `status`, `review_date`, `created_by`, `created_date`) VALUES
+(1, '2023-02-23', 'Draft', 2, '2023-02-26', 'SBF', 'U2', 'Update Sop', '2023-02-26', 'Draft Sop', '2023-02-26', '2023-02-26', 'Review', 'Draft Sop', '', '2023-02-26 14:44:52');
 
 --
 -- Indexes for dumped tables
@@ -255,7 +255,7 @@ ALTER TABLE `trxsop_detail_keranjang`
 -- Indexes for table `trxsop_header`
 --
 ALTER TABLE `trxsop_header`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`trx_no`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -278,12 +278,6 @@ ALTER TABLE `sop_detail_keranjang`
 --
 ALTER TABLE `trxsop_detail_keranjang`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `trxsop_header`
---
-ALTER TABLE `trxsop_header`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
