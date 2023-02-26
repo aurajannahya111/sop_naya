@@ -298,8 +298,7 @@ class  Registersop extends CI_Controller {
 		$eff_date = $var['eff_date'];
         $exp_date = $var['exp_date'];
 		$Remarks = $var['Remarks'];
-		var_dump($sop_no);
-		return;
+
 		$data = array(
 			'company' => $company,
 			'unit' => $unit,
@@ -319,15 +318,16 @@ class  Registersop extends CI_Controller {
 
 		$this->registersop_model->ubah_data($where, $data,'sop_header');
 
+		$this->m_registersop_detail->hapus_data($where,'sop_detail');
 		$detail = $this->m_registersop_keranjang->get_data()->result();
-		$no_sop = $this->registersop_model->getLastId()->result()[0]->sop_no;
 		foreach ($detail as $value) {
 			$detailData = array(
-				'sop_no' => $no_sop,
+				'sop_no' => $value->sop_no,
 				'form_no' => $value->form_no,
 				'form_title' => $value->form_title,
 			);
 			$this->m_registersop_detail->input_data($detailData, 'sop_detail');
+			$this->m_registersop_keranjang->hapus_data(['id'=>$value->id], 'sop_detail_keranjang');
 		}
 		redirect('registersop');
 	}
