@@ -8,6 +8,8 @@ class Updatesop extends CI_Controller {
        parent::__construct();
        $this->load->model('updatesop_model');
        $this->load->model('m_updatesop_keranjang');
+	   $this->load->model('m_updatesop_detail');
+
 
     //    $this->load->model('updatesop_model');
        $this->load->model('m_registersop_detail');
@@ -111,5 +113,21 @@ class Updatesop extends CI_Controller {
 		);
 		$this->m_updatesop_keranjang->input_data($data, 'trxsop_detail_keranjang');
 		return redirect('updatesop/tambah');
+	}
+	public function deleteKeranjang($id)
+	{
+		$where = array('id' => $id);
+		$this->m_updatesop_keranjang->hapus_data($where,'trxsop_detail_keranjang');
+
+		return redirect('updatesop/tambah');
+	}
+	public function show($trx_no)
+	{
+		$data['title']= 'SOP Detail';
+		$data['details'] = $this->updatesop_model->show($trx_no)->result();
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('updatesop_detail');
+		$this->load->view('template/footer');
 	}
 }

@@ -175,12 +175,17 @@
 	<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>	
 </form>
 
+<template id="">
+
+</template>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 <script>
 	// BISA pake ajax untuk auto update form title, atau pake javascript Vanilla, atau pake jquery
 
 	const selectFormNo = document.querySelector('#formNo');
-	var value = (selectFormNo.querySelector("[data-no='"+selectFormNo.value+"']")).textContent;
+	var value =(selectFormNo.querySelector("[data-no='"+selectFormNo.value+"']")).textContent;
+	console.log(value);
 	document.querySelector('#formtitle').value = value.slice(4, value.length);
 	selectFormNo.addEventListener('change', () => {
 		let value = selectFormNo.value;
@@ -189,43 +194,41 @@
 		const title = document.querySelector('#formtitle');
 		title.value = text;
 	});
-	
-	$(document).ready(function() {
-		let dataSopNo = [];
-		let dataSopTitle = [];
-		let dataSopDate = [];
-		let dataSopEffDate = [];
-		let dataSopExpDate = [];
-		let dataSopRemarks = [];
-		<?php foreach($sops as $sop): ?>
-			dataSopNo.push("<?= $sop->sop_no ?>");
-			dataSopTitle.push("<?= $sop->sop_title ?>");
-			dataSopDate.push("<?= $sop->sop_date ?>");
-			dataSopEffDate.push("<?= $sop->eff_date ?>");
-			dataSopExpDate.push("<?= $sop->exp_date ?>");
-			dataSopRemarks.push("<?= $sop->Remarks ?>");
-		<?php endforeach ?>
 
+	$(document).ready(function() {
 		$(document).on('click', '#buttonKeranjang', function(e) {
 			const no = selectFormNo.value;
+			console.log(no);
 			const title = document.querySelector('#formtitle');
 			console.log(title.value);
 			window.location = "addSopkeranjang?no="+no+"&title="+title.value;
 		});
+		// $(document).on('submit', '#form-keranjang', function(e) {
+		// 	$.ajax({
+		// 		url : 'addSopKeranjang?no=nomerberapa&title=titleapa',
+		// 		method: 'POST',
+		// 		data: $(this).serialize(),
+		// 		beforeSend: function () {
+		// 			//function here ...
+		// 			$('button').prop('disabled', true);
+		// 		},
+		// 		success: function(data) {
+		// 			$('button').prop('disabled', false);
+		// 			console.log(data);
+		// 			$('#title').val("");
+		// 			$('#message').val("");
 
-		$('#number_sop').on('change', function (e) {
-			let arrayIndex = dataSopNo.indexOf($('#number_sop').val());
-			setInputSop(arrayIndex);
-		});
+		// 			$('#response').text(data.message);
+		// 		},
+		// 		error: function (jqXHR, textStatus, errorThrown) {
+					
+		// 			$('button').prop('disabled', false);
+		// 			console.log('Message: ' + textStatus + ' , HTTP: ' + errorThrown );
+		// 		},
+		// 	})
 
-		function setInputSop(index = 0) {
-			$('#sop_title').val(dataSopTitle[index]);
-			$('#sop_date').val(dataSopDate[index]);
-			$('#sop_effdate').val(dataSopEffDate[index]);
-			$('#sop_expdate').val(dataSopExpDate[index]);
-			$('#remarks').val(dataSopRemarks[index]);
-		}
-		setInputSop();
+		// 	return false;
+		// });
 	});
 
 </script>
