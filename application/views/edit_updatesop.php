@@ -1,51 +1,51 @@
 <!-- menyesuaikan yang di foto -->
-<form action="<?= base_url('updatesop/tambah_aksi') ?>" method="POST">
+<form action="<?= base_url('updatesop/update') ?>" method="POST">
 	<div class="row">
 		<div class="col-6">
 			<div class="form-group">
 				<label for="" >Company</label>
 				<select name="company" class="form-control" >
 					<option value="SBF">--Pilih Company--</option>
-					<option value="SBF">SBF</option>
-					<option value="CPR">CPR</option>
+					<option value="SBF" <?= $sop[0]->company == "SBF" ? 'selected' : '' ?> >SBF</option>
+					<option value="CPR" <?= $sop[0]->company == "SBF" ? 'selected' : '' ?> >CPR</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="" >Unit</label>
 				<select name="unit" class="form-control ">
 					<option value="SBF">--Pilih Unit--</option>
-					<option value="U1">U1</option>
-					<option value="U2">U2</option>
-					<option value="U3">U3</option>
-					<option value="U4">U4</option>
-					<option value="U5">U5</option>
+					<option value="U1" <?= $sop[0]->unit == "U1" ? 'selected' : '' ?> >U1</option>
+					<option value="U2" <?= $sop[0]->unit == "U2" ? 'selected' : '' ?> >U2</option>
+					<option value="U3" <?= $sop[0]->unit == "U3" ? 'selected' : '' ?> >U3</option>
+					<option value="U4" <?= $sop[0]->unit == "U4" ? 'selected' : '' ?> >U4</option>
+					<option value="U5" <?= $sop[0]->unit == "U5" ? 'selected' : '' ?> >U5</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label>Trx No</label>
-				<input type="number" name="example" class="form-control" disabled value="<?= $number_trxno ?>">
-				<input type="hidden" name="trx_no" value="<?= $number_trxno ?>">
+				<input type="number" name="example" class="form-control" disabled value="<?= $sop[0]->trx_no ?>">
+				<input type="hidden" name="trx_no" value="<?= $sop[0]->trx_no ?>">
 			</div>
 		</div>
 		<div class="col-6">
 			<div class="form-group">
 				<label for="" >Status</label>
 				<select name="status" class="form-control" >
-					<option value="SBF">--Pilih Status--</option>
-					<option value="Draft">Draft</option>
-					<option value="Active">Active</option>
-					<option value="Review">Review</option>
-					<option value="Obsolete">Obsolete</option>
-					<option value="Pending">Pending</option>
+					<option value="SBF" <?= $sop[0]->status == "SBF" ? 'selected' : '' ?> >--Pilih Status--</option>
+					<option value="Draft" <?= $sop[0]->status == "Draft" ? 'selected' : '' ?> >Draft</option>
+					<option value="Active" <?= $sop[0]->status == "Active" ? 'selected' : '' ?> >Active</option>
+					<option value="Review" <?= $sop[0]->status == "Review" ? 'selected' : '' ?> >Review</option>
+					<option value="Obsolete" <?= $sop[0]->status == "Obsolete" ? 'selected' : '' ?> >Obsolete</option>
+					<option value="Pending" <?= $sop[0]->status == "Pending" ? 'selected' : '' ?> >Pending</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label>Departement</label>
-				<input type="text" name="departement" class="form-control" >
+				<input type="text" name="departement" class="form-control" value="<?= $sop[0]->departement ?>">
 			</div>
 			<div class="form-group">
 				<label>Trx Date</label>
-				<input type="Date" name="trx_date" class="form-control" >  
+				<input type="Date" name="trx_date" class="form-control" value="<?= $sop[0]->trx_date ?>" >  
 			</div>
 		</div>
         <div class="col-6">
@@ -53,7 +53,7 @@
 				<label for="" >Trx Type</label>
 				<select name="trx_type" class="form-control" >
 					<option value="">--Pilih type--</option>
-					<option value="Draft">Edit</option>
+					<option value="Draft"<?= $sop[0]->unit == "U1" ? 'selected' : '' ?>>Edit</option>
 					<option value="Active">Renew</option>
                     <option value="Active">Obsolate</option>
 				</select>
@@ -77,32 +77,32 @@
 			<div class="col-6">
 				<div class="form-group">
 					<label>Sop Date</label>
-					<input type="Date" name="sop_date" id="sop_date" class="form-control" >
+					<input type="Date" name="sop_date" id="sop_date" class="form-control" value="<?= $sop[0]->sop_date ?>">
 				</div>
 			</div>
 		</div>
 		<div class="col-12">
 			<div class="form-group">
 				<label>Sop Title</label>
-				<input type="title" name="sop_title" id="sop_title" class="form-control" >
+				<input type="title" name="sop_title" id="sop_title" class="form-control" value="<?= $sop[0]->sop_title ?>">
 			</div>
 		</div>
         <div class="col-6">
 			<div class="form-group">
 				<label>Eff Date</label>
-				<input type="Date" name="eff_date" id="sop_effdate" class="form-control" >
+				<input type="Date" name="eff_date" id="sop_effdate" class="form-control" value="<?= $sop[0]->eff_date ?>">
 			</div>
 		</div>
         <div class="col-6">
 			<div class="form-group">
 				<label>Exp Date</label>
-				<input type="Date" name="exp_date" id="sop_expdate" class="form-control" >
+				<input type="Date" name="exp_date" id="sop_expdate" class="form-control" value="<?= $sop[0]->exp_date ?>">
 			</div>
 		</div>
 		<div class="col-12">
 			<div class="form-group">
 				<label>Remarks</label>
-				<textarea name="Remarks" id="remarks" class="form-control" ></textarea>
+				<textarea name="Remarks" id="remarks" class="form-control" ><?= $sop[0]->Remarks ?></textarea>
 			</div>
 		</div>
         <div class="col-6">
@@ -111,16 +111,22 @@
 				<input type="Date" name="review_date" class="form-control" >
 			</div>
 		</div>
+        <div class="col-6">
+			<div class="form-group">
+				<label>Next Review Date</label>
+				<input type="Date" name="review_date" class="form-control" >
+			</div>
+		</div>
 	</div>
 	<hr>
 	<div class="row" id="formAddKeranjang">
 		<div class="col-6">
 			<div class="form-group">
-				<label for="formNo">FORM NO</label>
-				<select name="formNO" id="formNo" class="form-control" >
+            <label for="formNo">FORM NO</label>
+				<select name="formNo" id="formNo" class="form-control" >
 					<?php foreach($forms as $form): ?>   
 						<option value="<?= $form->formulir_no ?>" data-no="<?= $form->formulir_no ?>"><?= $form->formulir_no ?> - <?= $form->formulir_title ?></option>
-					<?php endforeach ?>
+					<?php  endforeach ?>
 				</select>
 			</div>
 		</div>
@@ -168,18 +174,13 @@
 	</div>
 	<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>	
 </form>
-
-<template id="">
-
-</template>
-
+<template id="numbersop" data-id="<?= $sop[0]->id ?>"></template>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 <script>
 	// BISA pake ajax untuk auto update form title, atau pake javascript Vanilla, atau pake jquery
 
 	const selectFormNo = document.querySelector('#formNo');
 	var value =(selectFormNo.querySelector("[data-no='"+selectFormNo.value+"']")).textContent;
-	console.log(value);
 	document.querySelector('#formtitle').value = value.slice(4, value.length);
 	selectFormNo.addEventListener('change', () => {
 		let value = selectFormNo.value;
@@ -195,34 +196,6 @@
 			console.log(no);
 			const title = document.querySelector('#formtitle');
 			console.log(title.value);
-			window.location = "addSopkeranjang?no="+no+"&title="+title.value;
+			window.location = "http://localhost/SOP_SOP/registersop/edit_addSopkeranjang?no="+no+"&title="+title.value+"&sop_no=<?= $sop[0]->sop_no ?>";
 		});
-		// $(document).on('submit', '#form-keranjang', function(e) {
-		// 	$.ajax({
-		// 		url : 'addSopKeranjang?no=nomerberapa&title=titleapa',
-		// 		method: 'POST',
-		// 		data: $(this).serialize(),
-		// 		beforeSend: function () {
-		// 			//function here ...
-		// 			$('button').prop('disabled', true);
-		// 		},
-		// 		success: function(data) {
-		// 			$('button').prop('disabled', false);
-		// 			console.log(data);
-		// 			$('#title').val("");
-		// 			$('#message').val("");
-
-		// 			$('#response').text(data.message);
-		// 		},
-		// 		error: function (jqXHR, textStatus, errorThrown) {
-					
-		// 			$('button').prop('disabled', false);
-		// 			console.log('Message: ' + textStatus + ' , HTTP: ' + errorThrown );
-		// 		},
-		// 	})
-
-		// 	return false;
-		// });
 	});
-
-</script>

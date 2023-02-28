@@ -259,7 +259,7 @@ class  Registersop extends CI_Controller {
 			redirect("registersop/edit/$sop_no?b");
 		}
 		$where = array('sop_no' => $sop_no);
-		$data['title']= 'Update SOP';
+		$data['title']= 'Update Register SOP';
         $data['sop']= $this->registersop_model->edit_data($where,'sop_header')->result();
 		
 		$data['forms'] = $this->registerform_model->get_data('register_form')->result();
